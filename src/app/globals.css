@@ -1,26 +1,82 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+.bg-primary { background-color: #b4b4b4; }
+.text-primary { color: #b4b4b4; }
+.hover\:bg-primary-100:hover { background-color: #c4c4c4; }
+.hover\:bg-primary-200:hover { background-color: #a4a4a4; }
+.focus\:ring-primary { --tw-ring-color: #b4b4b4; }
+.hover\:text-primary-100:hover { color: #c4c4c4; }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.blog-post {
+  @apply px-8 pb-8 dark:bg-gray-900;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+  @apply font-bold pt-8 mb-4 leading-tight text-gray-900 dark:text-white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.blog-post h1 {
+  @apply text-4xl;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.blog-post h2 {
+  @apply text-3xl;
+}
+
+.blog-post h3 {
+  @apply text-2xl;
+}
+
+.blog-post p {
+  @apply my-4 text-lg text-gray-600 dark:text-gray-300;
+}
+
+.blog-post a {
+  @apply text-gray-600 underline dark:text-[#b4b4b4] ;
+}
+
+.blog-post a:hover {
+  @apply opacity-85;
+}
+
+.blog-post ul,
+.blog-post ol {
+  @apply pl-5 my-4 text-gray-600 dark:text-gray-300;
+}
+
+.blog-post li {
+  @apply mb-2;
+}
+
+.blog-post blockquote {
+  @apply my-6 pl-4 border-l-4 border-[#b4b4b4] italic text-gray-700 dark:text-gray-400;
+}
+
+.blog-post code {
+  @apply bg-gray-100 text-gray-900 px-1 py-0.5 rounded-md font-mono dark:bg-gray-700 dark:text-gray-50;
+}
+
+.blog-post pre {
+  @apply bg-gray-100 p-4 overflow-x-auto rounded-lg my-6 font-mono dark:bg-gray-800 dark:text-gray-50;
+}
+
+.blog-post img {
+  @apply max-w-full sm:max-w-lg rounded-lg my-4 border-3 border-solid border-gray-400 dark:border-gray-600;
+}
+.blog-post .con-images {
+  @apply flex flex-wrap gap-4 -mx-2 my-4;
+}
+
+.blog-post .con-images img {
+  @apply w-full md:w-1/2 lg:w-1/3 px-0 my-0 rounded-lg;
+}
+
+
+.blog-post hr {
+  @apply my-8 mb-0 border-none h-px bg-gray-400 dark:bg-gray-700;
 }

@@ -1,0 +1,14 @@
+import { Footer, Navbar } from "../../App"
+
+export default function NoPage(){
+    return (
+        <>
+            <Navbar />
+            <section id="about" className="py-16 bg-gray-50 dark:bg-gray-900 h-screen w-screen h-screen flex flex-col items-center justify-center">
+                    <h2 className="text-5xl font-bold text-gray-900 dark:text-white text-center mb-8">404</h2>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white text-center">The page you are looking for does not exist.</p>
+            </section>
+            <Footer/>
+        </>
+    )
+}
