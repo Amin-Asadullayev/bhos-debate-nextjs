@@ -25,7 +25,7 @@ export default function Navbar() {
 
     return (
         <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-screen  px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-14">
                     <a href="/" className="flex items-center space-x-2">
                         <img className="h-8 w-auto" src="/logo.png" alt="Logo" />
@@ -43,7 +43,7 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    <div className="hidden sm:flex items-center space-x-4">
+                    <div className="hidden sm:flex items-center float-right space-x-4">
                         <a href="#about" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">About</a>
                         <a href="#events" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Events</a>
                         <a href="#join" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Join Us</a>
