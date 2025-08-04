@@ -6,6 +6,7 @@ const Footer = () => {
                 <div className="mt-4 flex justify-center space-x-4">
                     <a target="_blank" href="https://www.facebook.com/people/BHOS-Debate-Club/100074306918748/" className="text-gray-400 hover:text-white">Facebook</a>
                     <a target="_blank" href="https://www.instagram.com/bhos.debate/" className="text-gray-400 hover:text-white">Instagram</a>
+                    <a target="_blank" href="mailto:debate@bhos.edu.az"className="text-gray-400 hover:text-white">Email</a>
                 </div>
             </div>
         </footer>
