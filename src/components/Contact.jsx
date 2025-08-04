@@ -20,7 +20,7 @@ const Contact = () => {
                         rows="5"
                     ></textarea>
                     <button className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary-200 transition">
-                        Send Message
+                        Send Messages
                     </button>
                 </div>
             </div>
