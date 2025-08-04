@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
 import createDOMPurify from "isomorphic-dompurify";
 import { JSDOM } from "jsdom";
-import NoPage from "@/app/not-found"; 
+import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar"
 
@@ -37,10 +37,9 @@ export default async function BlogPost({ params }) {
   const param = await params
   const res = await get(ref(database, `blogs/${param.id}`));
   const blog = res.val();
-  console.log(blog)
 
   if (!blog) {
-    return <NoPage />;
+    notFound();
   }
 
   return (
