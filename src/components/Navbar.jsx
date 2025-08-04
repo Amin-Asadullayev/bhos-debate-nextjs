@@ -1,5 +1,8 @@
 "use client"
 import {useState, useEffect} from 'react'
+import { AiFillSun } from "react-icons/ai";
+import { AiOutlineMoon } from 'react-icons/ai';
+import { AiFillCaretDown } from 'react-icons/ai';
 export default function Navbar() {
     useEffect(() => {
         if (!window.localStorage.getItem("theme")) {
@@ -9,17 +12,17 @@ export default function Navbar() {
     }, [])
     const [theme, setTheme] = useState("dark")
     const [isOpen, setIsOpen] = useState(false);
-    const [emoji, setEmoji] = useState("🌙")
+    const [emoji, setEmoji] = useState(<AiOutlineMoon/>)
     useEffect(() => {
         let rootWindow = window.document.documentElement;
         if (theme === "dark") {
             rootWindow.classList.add("dark")
             window.localStorage.setItem("theme", "dark")
-            setEmoji("🌙")
+            setEmoji(<AiOutlineMoon/>)
         } else {
             rootWindow.classList.remove("dark")
             window.localStorage.setItem("theme", "light")
-            setEmoji("☀️")
+            setEmoji(<AiFillSun />)
         }
     }, [theme])
 
@@ -39,7 +42,7 @@ export default function Navbar() {
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                         >
-                            ☰
+                            <AiFillCaretDown className={`transform transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`}/>
                         </button>
                     </div>
 

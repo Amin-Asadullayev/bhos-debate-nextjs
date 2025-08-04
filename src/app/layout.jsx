@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata = {
@@ -29,8 +30,10 @@ export default function RootLayout({ children }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>
+      <body className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+        <main className="flex-1">
         {children}
+        </main>
       </body>
     </html>
   );
