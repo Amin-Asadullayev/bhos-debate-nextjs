@@ -16,12 +16,9 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 
-
 export default async function BlogSection() {
-  const fetchData = await get(ref(database, "blogs"))
-  const blogEntries = fetchData.val()
-  console.log(blogEntries)
-
+  const snap = await get(ref(database, "blogs"))
+  const blogEntries = snap.val() || {}
   return (
     <section id="blog" className="py-16 bg-gray-50 dark:bg-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -29,7 +26,7 @@ export default async function BlogSection() {
            Blog
         </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-          {Object.keys(blogEntries).map((id) => (
+          {Object.keys(blogEntries).slice(0,3).map((id) => (
             <a
               key={id}
               href={`/blog/${id}`}
