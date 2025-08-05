@@ -14,7 +14,32 @@ export default async function AdminPage() {
   return (
     <>
     <Navbar/>
-    <TipTap/>
+    <h1 className="text-2xl font-bold text-center mx-auto w-full my-3 dark:text-gray-200">BHOS Debate Club Admin Panel</h1>
+    <div className="grid sm:gap-8 gap-6 md:grid-cols-2 lg:grid-cols-3 text-center text-center mx-10 my-5">
+      <a href="/admin/post-blog" className="block bg-gray-300 dark:bg-gray-800 p-6 mb-0 rounded-lg shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+        Post a blog
+      </h3>
+      </a>
+
+      <a className="block bg-gray-300 dark:bg-gray-800 p-6 mb-0 rounded-lg shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+        Post news
+      </h3>
+      </a>
+
+      <a className="block bg-gray-300 dark:bg-gray-800 p-6 mb-0 rounded-lg shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+        Manage blogs
+      </h3>
+      </a>
+
+      <a className="block bg-gray-300 dark:bg-gray-800 p-6 m-0 rounded-lg shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+        Manage news
+      </h3>
+      </a>
+    </div>
     </>
   );
 }

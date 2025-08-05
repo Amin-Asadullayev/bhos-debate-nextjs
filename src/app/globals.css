@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import '../styles/_variables.scss';
+@import '../styles/_keyframe-animations.scss';
 @custom-variant dark (&:where(.dark, .dark *));
 .bg-primary { background-color: #b4b4b4; }
 .text-primary { color: #b4b4b4; }
@@ -10,7 +12,11 @@
 .blog-post {
   @apply px-8 pb-8 dark:bg-gray-900;
 }
-
+.blog-post * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .blog-post h1,
 .blog-post h2,
 .blog-post h3,
@@ -80,3 +86,9 @@
 .blog-post hr {
   @apply my-8 mb-0 border-none h-px bg-gray-400 dark:bg-gray-700;
 }
+
+
+
+
+
+
