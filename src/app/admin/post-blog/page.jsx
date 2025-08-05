@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import { authOptions } from '@/lib/auth-options';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
+import TipTap from '@/components/TipTap'
 
 const ADMIN_EMAILS = process.env.AUTHORIZED_EMAILS.split(",");
 
@@ -13,6 +14,7 @@ export default async function App() {
     return (
         <>
             <Navbar />
+            <TipTap />
         </>
     )
 }
