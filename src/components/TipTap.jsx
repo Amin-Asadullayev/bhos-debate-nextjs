@@ -6,7 +6,7 @@ import Link from "@tiptap/extension-link"
 import Image from "@tiptap/extension-image"
 import CodeBlock from "@tiptap/extension-code-block";
 import Blockquote from "@tiptap/extension-blockquote";
-import { MdAddLink, MdFormatBold, MdFormatItalic, MdFormatUnderlined, MdFormatStrikethrough, MdFormatListBulleted, MdFormatListNumbered, MdLinkOff, MdFormatQuote, MdCode, MdUndo, MdRedo, MdOutlineImage} from "react-icons/md";
+import { MdAddLink, MdFormatBold, MdFormatItalic, MdFormatUnderlined, MdFormatStrikethrough, MdFormatListBulleted, MdFormatListNumbered, MdLinkOff, MdFormatQuote, MdCode, MdUndo, MdRedo, MdOutlineImage } from "react-icons/md";
 import { RiH1, RiH2, RiH3 } from "react-icons/ri";
 const MenuBar = ({ editor }) => {
   const [_, setRefresh] = useState(0);
@@ -76,13 +76,13 @@ const MenuBar = ({ editor }) => {
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={getButtonClass(editor.isActive("bulletList"), false)}
       >
-        <MdFormatListBulleted/>
+        <MdFormatListBulleted />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={getButtonClass(editor.isActive("orderedList"), false)}
       >
-        <MdFormatListNumbered/>
+        <MdFormatListNumbered />
       </button>
       <button
         onClick={() => {
@@ -94,26 +94,26 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().setLink({ href: "" }).run()}
         className={getButtonClass(editor.isActive("link"), !editor.can().chain().focus().setLink({ href: "" }).run())}
       >
-        <MdAddLink/>
+        <MdAddLink />
       </button>
       <button
         onClick={() => editor.chain().focus().unsetLink().run()}
         disabled={!editor.isActive("link")}
         className={getButtonClass(false, !editor.isActive("link"))}
       >
-        <MdLinkOff/>
+        <MdLinkOff />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         className={getButtonClass(editor.isActive("blockquote"), false)}
       >
-        <MdFormatQuote/>
+        <MdFormatQuote />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         className={getButtonClass(editor.isActive("codeBlock"), false)}
       >
-        <MdCode/>
+        <MdCode />
       </button>
       <ImageUploadButton editor={editor} />
       <button
@@ -121,30 +121,38 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().undo()}
         className={getButtonClass(false, !editor.can().undo())}
       >
-        <MdUndo/>
+        <MdUndo />
       </button>
       <button
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().redo()}
         className={getButtonClass(false, !editor.can().redo())}
       >
-        <MdRedo/>
+        <MdRedo />
       </button>
     </div>
   );
 };
 const ImageUploadButton = ({ editor }) => {
   const uploadImage = useCallback(
-    (event) => {
+    async (event) => {
       const file = event.target.files[0]
       if (!file) {
         return
       }
 
-
+      const newForm = new FormData()
+      newForm.append("file", file)
+      newForm.append("upload_preset", "bhos-debate-demo")
       const url = URL.createObjectURL(file)
 
-      editor.chain().focus().setImage({ src: url }).run()
+      const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
+        method: "POST",
+        body: newForm,
+      });
+
+      const imageURL = await response.json()
+      editor.chain().focus().setImage({ src: imageURL.secure_url }).run()
 
       event.target.value = null
     },
@@ -155,7 +163,7 @@ const ImageUploadButton = ({ editor }) => {
       <label
         className="px-2 py-1 rounded-md text-lg transition-colors bg-gray-200 dark:bg-gray-100 text-gray-700 dark:text-gray-500"
       >
-        <MdOutlineImage/>
+        <MdOutlineImage />
         <input
           type="file"
           accept="image/*"
@@ -166,7 +174,7 @@ const ImageUploadButton = ({ editor }) => {
     </>
   )
 }
-export default function Tiptap({title, setTitle, content, setContent}) {
+export default function Tiptap({ title, setTitle, content, setContent }) {
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [
@@ -186,12 +194,12 @@ export default function Tiptap({title, setTitle, content, setContent}) {
     content: `<p>Start typing...</p>`,
   })
   return (
-  <>
-    <div className="h-[calc(100vh-100px)] flex flex-col" style={{margin: "0 auto", padding: 20 }}>
-    <input value={title} onChange={(e) => setTitle(e)} placeholder="Title goes here..." className="w-auto ml-4 mr-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text"/>
-      <MenuBar editor={editor} />
-      <EditorContent editor={editor} spellCheck={false} className="tiptap blog-post flex-1 flex flex-col overflow-y-auto" />
-    </div>
-  </>
+    <>
+      <div className="h-[calc(100vh-100px)] flex flex-col" style={{ margin: "0 auto", padding: 20 }}>
+        <input value={title} onChange={(e) => setTitle(e)} placeholder="Title goes here..." className="w-auto ml-4 mr-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
+        <MenuBar editor={editor} />
+        <EditorContent editor={editor} spellCheck={false} className="tiptap blog-post flex-1 flex flex-col overflow-y-auto" />
+      </div>
+    </>
   )
 }
