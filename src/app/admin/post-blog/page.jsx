@@ -1,4 +1,3 @@
-import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
 import Navbar from '@/components/Navbar'
 import { authOptions } from '@/lib/auth-options';
 import { getServerSession } from 'next-auth';
@@ -14,7 +13,6 @@ export default async function App() {
     return (
         <>
             <Navbar />
-            <SimpleEditor />
         </>
     )
 }

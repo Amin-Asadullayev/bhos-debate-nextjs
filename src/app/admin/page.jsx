@@ -2,7 +2,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth-options";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
-import TipTap from "@/components/TipTap"
 const ADMIN_EMAILS = process.env.AUTHORIZED_EMAILS.split(",");
 
 export default async function AdminPage() {
