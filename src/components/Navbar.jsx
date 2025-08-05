@@ -49,8 +49,8 @@ export default function Navbar() {
                     <div className="hidden sm:flex items-center float-right space-x-4">
                         <a href="#about" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">About</a>
                         <a href="#events" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Events</a>
-                        <a href="#blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog sec</a>
                         <a href="/blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog</a>
+                        <a href="/news" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">News</a>
                         <a href="#join" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Join Us</a>
                         <a href="#contact" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Contact</a>
                         <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">{emoji}</button>
@@ -59,13 +59,13 @@ export default function Navbar() {
 
                 {isOpen && (
                     <div className="sm:hidden flex flex-col space-y-2 mt-2 px-2 pb-3 ">
-                        <a href="#about" className="text-gray-700 dark:text-gray-200">About</a>
-                        <a href="#events" className="text-gray-700 dark:text-gray-200">Events</a>
-                        <a href="#blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog sec</a>
-                        <a href="/news" className="text-gray-700 dark:text-gray-200">News</a>
-                        <a href="#join" className="text-gray-700 dark:text-gray-200">Join Us</a>
-                        <a href="#contact" className="text-gray-700 dark:text-gray-200">Contact</a>
-                        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="w-max p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">{emoji}</button>
+                        <a href="#about" className="mx-auto text-gray-700 dark:text-gray-200">About</a>
+                        <a href="#events" className="mx-auto text-gray-700 dark:text-gray-200">Events</a>
+                        <a href="/blog" className="mx-auto text-gray-700 dark:text-gray-200">Blog</a>
+                        <a href="/news" className="mx-auto text-gray-700 dark:text-gray-200">News</a>
+                        <a href="#join" className="mx-auto text-gray-700 dark:text-gray-200">Join Us</a>
+                        <a href="#contact" className="mx-auto text-gray-700 dark:text-gray-200">Contact</a>
+                        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="transition duration-200 flex items-right justify-center w-full p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">{emoji}</button>
                     </div>
                 )}
             </div>
