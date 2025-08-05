@@ -49,7 +49,6 @@ export default async function BlogPost({ params }) {
         <h1>{blog.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
       </div>
-      <Footer />
     </>
   );
 }
