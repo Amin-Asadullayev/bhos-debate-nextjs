@@ -49,7 +49,7 @@ export default function Navbar() {
                     <div className="hidden sm:flex items-center float-right space-x-4">
                         <a href="#about" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">About</a>
                         <a href="#events" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Events</a>
-                        <a href="/blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog</a>
+                        <a href="#blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog sec</a>
                         <a href="/blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog</a>
                         <a href="#join" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Join Us</a>
                         <a href="#contact" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Contact</a>
@@ -61,7 +61,7 @@ export default function Navbar() {
                     <div className="sm:hidden flex flex-col space-y-2 mt-2 px-2 pb-3 ">
                         <a href="#about" className="text-gray-700 dark:text-gray-200">About</a>
                         <a href="#events" className="text-gray-700 dark:text-gray-200">Events</a>
-                        <a href="/blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog</a>
+                        <a href="#blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog sec</a>
                         <a href="/news" className="text-gray-700 dark:text-gray-200">News</a>
                         <a href="#join" className="text-gray-700 dark:text-gray-200">Join Us</a>
                         <a href="#contact" className="text-gray-700 dark:text-gray-200">Contact</a>
