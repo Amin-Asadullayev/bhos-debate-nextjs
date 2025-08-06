@@ -1,74 +1,151 @@
-"use client"
-import { useState, useEffect } from 'react'
+"use client";
+import { useState, useEffect } from "react";
 import { AiFillSun } from "react-icons/ai";
-import { AiOutlineMoon } from 'react-icons/ai';
-import { AiFillCaretDown } from 'react-icons/ai';
+import { AiOutlineMoon } from "react-icons/ai";
+import { AiFillCaretDown } from "react-icons/ai";
+
 export default function Navbar() {
-    useEffect(() => {
-        if (!window.localStorage.getItem("theme")) {
-            window.localStorage.setItem("theme", "dark")
-        }
-        setTheme(window.localStorage.getItem("theme"))
-    }, [])
-    const [theme, setTheme] = useState("dark")
-    const [isOpen, setIsOpen] = useState(false);
-    const [emoji, setEmoji] = useState(<AiOutlineMoon />)
-    useEffect(() => {
-        let rootWindow = window.document.documentElement;
-        if (theme === "dark") {
-            rootWindow.classList.add("dark")
-            window.localStorage.setItem("theme", "dark")
-            setEmoji(<AiOutlineMoon />)
-        } else {
-            rootWindow.classList.remove("dark")
-            window.localStorage.setItem("theme", "light")
-            setEmoji(<AiFillSun />)
-        }
-    }, [theme])
+  useEffect(() => {
+    if (!window.localStorage.getItem("theme")) {
+      window.localStorage.setItem("theme", "dark");
+    }
+    setTheme(window.localStorage.getItem("theme"));
+  }, []);
 
-    return (
-        <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
-            <div className="w-screen  px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-14">
-                    <a href="/" className="flex items-center space-x-2">
-                        <img className="h-8 w-auto" src="/logo.png" alt="Logo" />
-                        <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white whitespace-nowrap">
-                            BHOS Debate Club
-                        </h1>
-                    </a>
+  const [theme, setTheme] = useState("dark");
+  const [isOpen, setIsOpen] = useState(false);
+  const [emoji, setEmoji] = useState(<AiOutlineMoon />);
 
-                    <div className="sm:hidden">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        >
-                            <AiFillCaretDown className={`transform transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
-                        </button>
-                    </div>
+  useEffect(() => {
+    let rootWindow = window.document.documentElement;
+    if (theme === "dark") {
+      rootWindow.classList.add("dark");
+      window.localStorage.setItem("theme", "dark");
+      setEmoji(<AiOutlineMoon />);
+    } else {
+      rootWindow.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
+      setEmoji(<AiFillSun />);
+    }
+  }, [theme]);
 
-                    <div className="hidden sm:flex items-center float-right space-x-4">
-                        <a href="#about" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">About</a>
-                        <a href="#events" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Events</a>
-                        <a href="/blog" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Blog</a>
-                        <a href="/news" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">News</a>
-                        <a href="#join" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Join Us</a>
-                        <a href="#contact" className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500">Contact</a>
-                        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">{emoji}</button>
-                    </div>
-                </div>
+  return (
+    <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
+      <div className="w-screen  px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14">
+          <a href="/" className="flex items-center space-x-2">
+            <img className="h-8 w-auto" src="/logo.png" alt="Logo" />
+            <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white whitespace-nowrap">
+              BHOS Debate Club
+            </h1>
+          </a>
 
-                {isOpen && (
-                    <div className="sm:hidden flex flex-col space-y-2 mt-2 px-2 pb-3 ">
-                        <a href="#about" className="mx-auto text-gray-700 dark:text-gray-200">About</a>
-                        <a href="#events" className="mx-auto text-gray-700 dark:text-gray-200">Events</a>
-                        <a href="/blog" className="mx-auto text-gray-700 dark:text-gray-200">Blog</a>
-                        <a href="/news" className="mx-auto text-gray-700 dark:text-gray-200">News</a>
-                        <a href="#join" className="mx-auto text-gray-700 dark:text-gray-200">Join Us</a>
-                        <a href="#contact" className="mx-auto text-gray-700 dark:text-gray-200">Contact</a>
-                        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="transition duration-200 flex items-right justify-center w-full p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200">{emoji}</button>
-                    </div>
-                )}
-            </div>
-        </nav>
-    );
+          <div className="sm:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <AiFillCaretDown
+                className={`transform transition-transform duration-100 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+
+          <div className="hidden sm:flex items-center float-right space-x-4">
+            <a
+              href="/#about"
+              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+            >
+              About
+            </a>
+            <a
+              href="/#events"
+              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+            >
+              Events
+            </a>
+            <a
+              href="/blog"
+              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+            >
+              Blog
+            </a>
+            <a
+              href="/news"
+              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+            >
+              News
+            </a>
+            <a
+              href="/#join"
+              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+            >
+              Join Us
+            </a>
+            <a
+              href="/#contact"
+              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+            >
+              Contact
+            </a>
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            >
+              {emoji}
+            </button>
+          </div>
+        </div>
+
+        {isOpen && (
+          <div className="sm:hidden flex flex-col space-y-2 mt-2 px-2 pb-3 ">
+            <a
+              href="/#about"
+              className="mx-auto text-gray-700 dark:text-gray-200"
+            >
+              About
+            </a>
+            <a
+              href="/#events"
+              className="mx-auto text-gray-700 dark:text-gray-200"
+            >
+              Events
+            </a>
+            <a
+              href="/blog"
+              className="mx-auto text-gray-700 dark:text-gray-200"
+            >
+              Blog
+            </a>
+            <a
+              href="/news"
+              className="mx-auto text-gray-700 dark:text-gray-200"
+            >
+              News
+            </a>
+            <a
+              href="/#join"
+              className="mx-auto text-gray-700 dark:text-gray-200"
+            >
+              Join Us
+            </a>
+            <a
+              href="/#contact"
+              className="mx-auto text-gray-700 dark:text-gray-200"
+            >
+              Contact
+            </a>
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="transition duration-200 flex items-right justify-center w-full p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            >
+              {emoji}
+            </button>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
 }
