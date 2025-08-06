@@ -28,7 +28,7 @@ export default function LoginPage() {
         });
 
         if (res.ok) { router.push("/admin"); }
-        else { alert("Access Denied"); }
+        else { alert("Access Denied."); }
 
       } catch (err) {
         console.error(err);

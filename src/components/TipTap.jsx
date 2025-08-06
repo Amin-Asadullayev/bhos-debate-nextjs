@@ -174,7 +174,7 @@ const ImageUploadButton = ({ editor }) => {
     </>
   )
 }
-export default function Tiptap({ title, setTitle, content, setContent }) {
+export default function Tiptap({ title, setTitle, content, setContent, post }) {
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [
@@ -196,9 +196,10 @@ export default function Tiptap({ title, setTitle, content, setContent }) {
   return (
     <>
       <div className="h-[calc(100vh-100px)] flex flex-col" style={{ margin: "0 auto", padding: 20 }}>
-        <input value={title} onChange={(e) => setTitle(e)} placeholder="Title goes here..." className="w-auto ml-4 mr-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
+        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title goes here..." className="w-auto ml-4 mr-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
         <MenuBar editor={editor} />
         <EditorContent editor={editor} spellCheck={false} className="tiptap blog-post flex-1 flex flex-col overflow-y-auto" />
+        <button className="mt-0 h-10 mx-4 rounded font-bold bg-gray-400 dark:bg-gray-100 text-gray-800 dark:text-gray-600" onClick={post}>Post "{title}"</button>
       </div>
     </>
   )
