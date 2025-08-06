@@ -92,3 +92,14 @@
 .tiptap.ProseMirror {
   @apply flex-1 mt-4 border-solid border-2 rounded border-gray-500 dark:border-gray-400;
 }
+
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap p.is-editor-empty:first-child::before{
+  @apply text-gray-600 dark:text-gray-100;
+}
