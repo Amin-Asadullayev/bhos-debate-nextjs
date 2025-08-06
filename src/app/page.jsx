@@ -7,7 +7,7 @@ import BlogSection from '@/components/BlogSection'
 import JoinUs from '@/components/JoinUs'
 import Contact from '@/components/Contact'
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, get, query, orderByChild } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -25,7 +25,7 @@ const database = getDatabase(app);
 
 
 export default async function Home(){
-    const initialFetch = await get(ref(database, "blogs"))
+    const initialFetch = await get(query(ref(database, "blogs"), orderByChild("date")))
     const blogs = initialFetch.val() || {}
     return (<>
         <Navbar/>

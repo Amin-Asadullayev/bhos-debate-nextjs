@@ -37,7 +37,7 @@ export default function NewPost() {
         push(ref(database, option==="blog" ? "blogs" : "news"), {
             title: title,
             content: content,
-            date: Date.now()
+            date: -Date.now()
         }).then((id) => {
             router.push(`/${option}/${id.key}`)
             fetch('/api/revalidate', {
