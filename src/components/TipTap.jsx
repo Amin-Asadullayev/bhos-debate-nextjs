@@ -6,6 +6,7 @@ import Link from "@tiptap/extension-link"
 import Image from "@tiptap/extension-image"
 import CodeBlock from "@tiptap/extension-code-block";
 import Blockquote from "@tiptap/extension-blockquote";
+import Placeholder from "@tiptap/extension-placeholder"
 import { MdAddLink, MdFormatBold, MdFormatItalic, MdFormatUnderlined, MdFormatStrikethrough, MdFormatListBulleted, MdFormatListNumbered, MdLinkOff, MdFormatQuote, MdCode, MdUndo, MdRedo, MdOutlineImage } from "react-icons/md";
 import { RiH1, RiH2, RiH3 } from "react-icons/ri";
 const MenuBar = ({ editor }) => {
@@ -196,13 +197,13 @@ export default function Tiptap({ title, setTitle, content, setContent, post }) {
       Image,
       Blockquote,
       CodeBlock.configure(),
-      ,
+      Placeholder.configure({placeholder: "Start typing...",}),
     ],
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       setContent(html);
     },
-    content: `<p>Start typing...</p>`,
+    content: ``,
   })
   return (
     <>
