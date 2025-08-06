@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
     try {
         const { secret, path } = await req.json()
-        if (secret !== process.env.REVALIDATION_PASS) {
+        if (secret !== process.env.NEXT_PUBLIC_REVALIDATION_PASS) {
             return NextResponse.json({ response: "Invalid passkey!" }, { status: 401 })
         }
         if (!path || typeof path !== "string") {
