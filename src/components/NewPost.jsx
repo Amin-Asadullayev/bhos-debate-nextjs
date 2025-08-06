@@ -25,6 +25,7 @@ export default function NewPost() {
     const router = useRouter()
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
+    const [option, setOption] = useState("blog")
 
     function postAPost() {
         const auth = getAuth()
@@ -33,12 +34,12 @@ export default function NewPost() {
             alert("Title or content cannot be empty.")
             return;
         }
-        push(ref(database, "blogs"), {
+        push(ref(database, option==="blog" ? "blogs" : "news"), {
             title: title,
             content: content,
             date: Date.now()
         }).then((id) => {
-            router.push(`/blog/${id.key}`)
+            router.push(`/${option}/${id.key}`)
             fetch('/api/revalidate', {
                 method: 'POST',
                 headers: {
@@ -46,13 +47,13 @@ export default function NewPost() {
                 },
                 body: JSON.stringify({
                     secret: process.env.NEXT_PUBLIC_REVALIDATION_PASS,
-                    path: `/blog/${id.key}`
+                    path: `/${option}/${id.key}`
                 }),
             })
         }).catch(err => console.log(err))
     }
     
     return (
-        <Tiptap title={title} setTitle={setTitle} content={content} setContent={setContent} post={postAPost} />
+        <Tiptap title={title} setTitle={setTitle} content={content} setContent={setContent} option={option} setOption={setOption} post={postAPost} />
     )
 }

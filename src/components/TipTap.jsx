@@ -175,13 +175,7 @@ const ImageUploadButton = ({ editor }) => {
     </>
   )
 }
-export default function Tiptap({ title, setTitle, content, setContent, post }) {
-
-  function noOpener(event) {
-    if (event.target.tagName === 'A') {
-      event.preventDefault()
-    }
-  }
+export default function Tiptap({ title, setTitle, content, setContent, option, setOption, post }) {
 
   const editor = useEditor({
     immediatelyRender: false,
@@ -197,18 +191,29 @@ export default function Tiptap({ title, setTitle, content, setContent, post }) {
       Image,
       Blockquote,
       CodeBlock.configure(),
-      Placeholder.configure({placeholder: "Start typing...",}),
+      Placeholder.configure({ placeholder: "Start typing...", }),
     ],
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       setContent(html);
     },
-    content: ``,
   })
   return (
     <>
       <div className="h-[calc(100vh-100px)] flex flex-col" style={{ margin: "0 auto", padding: 20 }}>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title goes here..." className="w-auto ml-4 mr-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
+        <div className="w-auto flex mx-4 mb-2">
+        <select value={option} onChange={(e) => setOption(e.target.value)} className="rounded px-2 bg-gray-300 dark:bg-gray-200">
+          <option value="blog">Blog</option>
+          <option value="news">News</option>
+        </select>
+
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title goes here..."
+          className="h-full flex-1 ml-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
+        </div>
+
         <MenuBar editor={editor} />
         <EditorContent editor={editor} spellCheck={false} className="tiptap blog-post flex-1 flex flex-col overflow-y-auto" />
         <button className="mt-0 h-10 mx-4 rounded font-bold bg-gray-400 dark:bg-gray-100 text-gray-800 dark:text-gray-600" onClick={post}>Post "{title}"</button>
