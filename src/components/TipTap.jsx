@@ -175,13 +175,24 @@ const ImageUploadButton = ({ editor }) => {
   )
 }
 export default function Tiptap({ title, setTitle, content, setContent, post }) {
+
+  function noOpener(event) {
+    if (event.target.tagName === 'A') {
+      event.preventDefault()
+    }
+  }
+
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         codeBlock: false,
+        blockquote: false,
+        link: false
       }),
-      Link,
+      Link.configure({
+        openOnClick: false,
+      }),
       Image,
       Blockquote,
       CodeBlock.configure(),
