@@ -114,7 +114,7 @@ export default function Navbar() {
               Events
             </a>
             <a
-              href="/blog"
+              href="/#blog"
               className="mx-auto text-gray-700 dark:text-gray-200"
             >
               Blog
