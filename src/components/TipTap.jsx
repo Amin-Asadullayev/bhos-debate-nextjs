@@ -8,6 +8,8 @@ import CodeBlock from "@tiptap/extension-code-block";
 import Blockquote from "@tiptap/extension-blockquote";
 import { MdAddLink, MdFormatBold, MdFormatItalic, MdFormatUnderlined, MdFormatStrikethrough, MdFormatListBulleted, MdFormatListNumbered, MdLinkOff, MdFormatQuote, MdCode, MdUndo, MdRedo, MdOutlineImage } from "react-icons/md";
 import { RiH1, RiH2, RiH3 } from "react-icons/ri";
+import Placeholder from "@tiptap/extension-placeholder";
+
 const MenuBar = ({ editor }) => {
   const [_, setRefresh] = useState(0);
   useEffect(() => {
@@ -185,13 +187,12 @@ export default function Tiptap({ title, setTitle, content, setContent }) {
       Image,
       Blockquote,
       CodeBlock.configure(),
-      ,
+      Placeholder.configure({placeholder: "Start typing...",}),
     ],
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       setContent(html);
     },
-    content: `<p>Start typing...</p>`,
   })
   return (
     <>
