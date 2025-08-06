@@ -211,7 +211,7 @@ export default function Tiptap({ title, setTitle, content, setContent, option, s
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title goes here..."
-          className="h-full flex-1 ml-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
+          className="w-full h-full flex-1 ml-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
         </div>
 
         <MenuBar editor={editor} />
