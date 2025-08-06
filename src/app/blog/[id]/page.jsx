@@ -45,9 +45,9 @@ export default async function BlogPost({ params }) {
   return (
     <>
       <Navbar />
-      <div className="blog-post">
-        <h1>{blog.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
+      <div className="blog-post bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{blog.title}</h1>
+        <div className="text-gray-600 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
       </div>
     </>
   );
