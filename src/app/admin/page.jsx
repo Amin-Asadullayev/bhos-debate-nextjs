@@ -21,15 +21,9 @@ export default async function AdminPage() {
       </h3>
       </a>
 
-      <a className="block bg-gray-300 dark:bg-gray-800 p-6 mb-0 rounded-lg shadow hover:shadow-lg transition">
+      <a href="/admin/manage" className="block bg-gray-300 dark:bg-gray-800 p-6 mb-0 rounded-lg shadow hover:shadow-lg transition">
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-        Manage blogs
-      </h3>
-      </a>
-
-      <a className="block bg-gray-300 dark:bg-gray-800 p-6 m-0 rounded-lg shadow hover:shadow-lg transition">
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-        Manage news
+        Manage posts
       </h3>
       </a>
     </div>
