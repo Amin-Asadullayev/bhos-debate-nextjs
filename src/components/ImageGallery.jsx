@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { NodeViewWrapper } from '@tiptap/react'
 import { FcPrevious, FcNext } from 'react-icons/fc'
@@ -12,7 +12,11 @@ export const ImageGallery = ({ node }) => {
 
   const galleryPrevRef = useRef(null)
   const galleryNextRef = useRef(null)
+  const [swiperReady, setSwiperReady] = useState(false)
 
+  useEffect(() => {
+    setSwiperReady(true)
+  }, [])
   return (
     <NodeViewWrapper className="image-swiper-wrapper" style={{ position: 'relative' }}>
       <Swiper
@@ -21,17 +25,11 @@ export const ImageGallery = ({ node }) => {
         spaceBetween={10}
         centeredSlides={true}
         slidesPerView={1}
-        onSwiper={(swiper) => {
-          setTimeout(() => {
-            if (swiper.params.navigation) {
-              swiper.params.navigation.prevEl = galleryPrevRef.current
-              swiper.params.navigation.nextEl = galleryNextRef.current
-              swiper.navigation.destroy()
-              swiper.navigation.init()
-              swiper.navigation.update()
-            }
-          }, 0)
-        }}
+        navigation={
+          swiperReady
+            ? { prevEl: galleryPrevRef.current, nextEl: galleryNextRef.current }
+            : false
+        }
       >
         {images.map((src, id_) => (
           <SwiperSlide key={id_}>

@@ -5,29 +5,28 @@ import { AiOutlineMoon } from "react-icons/ai";
 import { AiFillCaretDown } from "react-icons/ai";
 
 export default function Navbar() {
+
+  const [theme, setTheme] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
-    if (!window.localStorage.getItem("theme")) {
-      window.localStorage.setItem("theme", "dark");
-    }
-    setTheme(window.localStorage.getItem("theme"));
+    const getTheme = localStorage.getItem("theme");
+    const ifDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = getTheme || (ifDark ? "dark" : "light");
+    setTheme(initialTheme);
+    document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    localStorage.setItem("theme", initialTheme);
   }, []);
 
-  const [theme, setTheme] = useState("dark");
-  const [isOpen, setIsOpen] = useState(false);
-  const [emoji, setEmoji] = useState(<AiOutlineMoon />);
-
   useEffect(() => {
-    let rootWindow = window.document.documentElement;
-    if (theme === "dark") {
-      rootWindow.classList.add("dark");
-      window.localStorage.setItem("theme", "dark");
-      setEmoji(<AiOutlineMoon />);
-    } else {
-      rootWindow.classList.remove("dark");
-      window.localStorage.setItem("theme", "light");
-      setEmoji(<AiFillSun />);
+    if (theme) {
+      document.documentElement.classList.toggle("dark", theme === "dark");
+      localStorage.setItem("theme", theme);
     }
   }, [theme]);
+
+  const emoji = (theme === "dark" ? <AiOutlineMoon /> : <AiFillSun />);
+  if (theme === null) return null
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">

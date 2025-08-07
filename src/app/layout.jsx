@@ -9,7 +9,7 @@ export const metadata = {
 const setInitialTheme = `
 (function() {
   try {
-    const theme = localStorage.getItem('theme');
+    const theme = window.localStorage.getItem('theme');
     if (
       theme === 'dark' || 
       (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
