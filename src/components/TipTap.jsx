@@ -7,8 +7,10 @@ import Image from "@tiptap/extension-image"
 import CodeBlock from "@tiptap/extension-code-block";
 import Blockquote from "@tiptap/extension-blockquote";
 import Placeholder from "@tiptap/extension-placeholder"
+import { ImageSwiper } from "@/lib/GalleryExtension"
 import { MdAddLink, MdFormatBold, MdFormatItalic, MdFormatUnderlined, MdFormatStrikethrough, MdFormatListBulleted, MdFormatListNumbered, MdLinkOff, MdFormatQuote, MdCode, MdUndo, MdRedo, MdOutlineImage } from "react-icons/md";
 import { RiH1, RiH2, RiH3 } from "react-icons/ri";
+import { GrGallery } from "react-icons/gr";
 const MenuBar = ({ editor }) => {
   const [_, setRefresh] = useState(0);
   useEffect(() => {
@@ -117,6 +119,7 @@ const MenuBar = ({ editor }) => {
         <MdCode />
       </button>
       <ImageUploadButton editor={editor} />
+      <ImageGalleryButton editor={editor} />
       <button
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().undo()}
@@ -175,6 +178,54 @@ const ImageUploadButton = ({ editor }) => {
     </>
   )
 }
+
+const ImageGalleryButton = ({ editor }) => {
+  const uploadImages = useCallback(
+    async (event) => {
+      const files = event.target.files
+
+      const uploadedURLs = []
+
+      for (const file of files){
+
+      const newForm = new FormData()
+      newForm.append("file", file)
+      newForm.append("upload_preset", "bhos-debate-demo")
+      const url = URL.createObjectURL(file)
+
+      const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
+        method: "POST",
+        body: newForm,
+      });
+
+      const imageURL = await response.json()
+      uploadedURLs.push(imageURL.secure_url)
+    }
+    editor.commands.insertImageSwiper(uploadedURLs)
+
+      event.target.value = null
+    },
+    [editor]
+  )
+  return (
+    <>
+      <label
+        className="px-2 py-1 rounded-md text-lg transition-colors bg-gray-200 dark:bg-gray-100 text-gray-700 dark:text-gray-500"
+      >
+        <GrGallery />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={uploadImages}
+          multiple
+          style={{ display: "none" }}
+        />
+      </label>
+    </>
+  )
+}
+
+
 export default function Tiptap({ title, setTitle, content, setContent, option, setOption, post }) {
 
   const editor = useEditor({
@@ -185,6 +236,7 @@ export default function Tiptap({ title, setTitle, content, setContent, option, s
         blockquote: false,
         link: false
       }),
+      ImageSwiper,
       Link.configure({
         openOnClick: false,
       }),

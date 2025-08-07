@@ -3,7 +3,7 @@ import { getDatabase, ref, get } from "firebase/database";
 import createDOMPurify from "isomorphic-dompurify";
 import { JSDOM } from "jsdom";
 import { notFound } from "next/navigation";
-import Footer from "@/components/Footer";
+import Swiper from "@/components/Swiper"
 import Navbar from "@/components/Navbar"
 
 const firebaseConfig = {
@@ -48,6 +48,7 @@ export default async function BlogPost({ params }) {
       <div className="blog-post">
         <h1>{blog.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
+        <Swiper selector=".swiper" />
       </div>
     </>
   );
