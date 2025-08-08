@@ -54,16 +54,10 @@ export default function Navbar() {
 
           <div className="hidden sm:flex items-center float-right space-x-4">
             <a
-              href="/#about"
+              href="/"
               className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
             >
-              About
-            </a>
-            <a
-              href="/#events"
-              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
-            >
-              Events
+              Home
             </a>
             <a
               href="/blog"
@@ -76,18 +70,6 @@ export default function Navbar() {
               className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
             >
               News
-            </a>
-            <a
-              href="/#join"
-              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
-            >
-              Join Us
-            </a>
-            <a
-              href="/#contact"
-              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
-            >
-              Contact
             </a>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -101,16 +83,10 @@ export default function Navbar() {
         {isOpen && (
           <div className="sm:hidden flex flex-col space-y-2 mt-2 px-2 pb-3 ">
             <a
-              href="/#about"
+              href="/"
               className="mx-auto text-gray-700 dark:text-gray-200"
             >
-              About
-            </a>
-            <a
-              href="/#events"
-              className="mx-auto text-gray-700 dark:text-gray-200"
-            >
-              Events
+              Home
             </a>
             <a
               href="/blog"
@@ -123,18 +99,6 @@ export default function Navbar() {
               className="mx-auto text-gray-700 dark:text-gray-200"
             >
               News
-            </a>
-            <a
-              href="/#join"
-              className="mx-auto text-gray-700 dark:text-gray-200"
-            >
-              Join Us
-            </a>
-            <a
-              href="/#contact"
-              className="mx-auto text-gray-700 dark:text-gray-200"
-            >
-              Contact
             </a>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

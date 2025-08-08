@@ -6,8 +6,8 @@
 .hover\:bg-primary-200:hover { background-color: #a4a4a4; }
 .focus\:ring-primary { --tw-ring-color: #b4b4b4; }
 .hover\:text-primary-100:hover { color: #c4c4c4; }
-.blog-post {
 
+.blog-post {
   @apply px-4 pb-8 dark:bg-gray-900;
 }
 .blog-post * {
