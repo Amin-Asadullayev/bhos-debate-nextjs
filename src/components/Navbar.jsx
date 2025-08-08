@@ -12,7 +12,7 @@ export default function Navbar() {
   useEffect(() => {
     const getTheme = localStorage.getItem("theme");
     const ifDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = getTheme || (ifDark ? "dark" : "light");
+    const initialTheme = getTheme || (ifDark ? 'dark" : "light");
     setTheme(initialTheme);
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
     localStorage.setItem("theme", initialTheme);
@@ -20,7 +20,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (theme) {
-      document.documentElement.classList.toggle("dark", theme === "dark");
+      document.documentElement.classList.toggle('dark', theme === "dark");
       localStorage.setItem("theme", theme);
     }
   }, [theme]);
