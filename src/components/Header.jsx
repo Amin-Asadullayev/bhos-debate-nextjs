@@ -1,6 +1,8 @@
 const Header = () => {
     return (
         <section className="bg-primary text-white py-20">
+             <div   className="absolute inset-0 bg-center bg-cover opacity-50 transition-opacity duration-500"  style={{ backgroundImage: "url('/fel.jpg')" }}></div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Join the Art of Debate</h2>
                 <p className="text-lg md:text-xl mb-8">Engage in thought-provoking discussions and sharpen your critical thinking skills.</p>
