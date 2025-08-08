@@ -14,7 +14,7 @@ export default function Navbar() {
     const ifDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initialTheme = getTheme || (ifDark ? "dark" : "light");
     setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    document.documentElement.classList.toggle("dark", initialTheme === 'dark');
     localStorage.setItem("theme", initialTheme);
   }, []);
 
