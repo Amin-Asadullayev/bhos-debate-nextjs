@@ -10,8 +10,8 @@ export async function POST(req) {
         if (!path || typeof path !== "string") {
             return NextResponse.json({ response: "Invalid path!" }, { status: 404 })
         }
-        revalidatePath(path)
-        return NextResponse.json({ response: "Revalidated succesfully" }, { status: 200 })
+        await revalidatePath(path)
+        return NextResponse.json({ response: `Revalidated succesfully` }, { status: 200 })
     } catch (err) {
         return NextResponse.json({ response: "ERROR" })
     }

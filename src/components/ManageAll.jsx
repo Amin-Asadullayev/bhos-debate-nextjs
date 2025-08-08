@@ -35,10 +35,20 @@ export default function NewPost() {
         setSelected(JSON.parse(JSON.stringify(selectedCopy)))
     }
 
-    const deletePosts = () => {
+    const deletePosts = async() => {
         if (confirm(`Do you really want to delete ${selected.length} post${selected.length>1 ? "s" : ""}? This action cannot be undone.`)){
            for (let i = 0; i < selected.length; i++){
                 remove(ref(database, `${dispVal}/${selected[i]}`));
+                const response = await fetch('/api/revalidate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        secret: process.env.NEXT_PUBLIC_REVALIDATION_PASS,
+                        path: `/${dispVal==="blogs" ? "blog" : "news"}/${selected[i]}`
+                    }),
+                })
             }
             setSelected([])
         }
