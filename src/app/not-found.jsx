@@ -1,5 +1,10 @@
 import Navbar from "@/components/Navbar";
 
+export const metadata = {
+  title: "Not Found",
+  description: "Not Found",
+};
+
 export default function NoPage() {
   return (
     <>
