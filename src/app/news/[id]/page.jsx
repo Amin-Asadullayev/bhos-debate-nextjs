@@ -25,12 +25,33 @@ const DOMPurify = createDOMPurify(window);
 export async function generateStaticParams() {
   const res = await get(ref(database, "news"));
   const news = res.val();
-
   if (!news) return [];
 
   return Object.keys(news).map((id) => ({
     id,
   }));
+}
+
+export async function generateMetadata({params}){
+  const param = await params
+  const res = await get(ref(database, `news/${param.id}`));
+  const blog = res.val();
+
+  return {
+    title: `${blog.title} - BHOS Debate Club`,
+    description: blog.title,
+    openGraph: {
+      title: `${blog.title} - BHOS Debate Club`,
+      description: blog.title,
+      url: 'https://debate.bhos.club',
+      siteName: 'BHOS Debate Club',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${blog.title} - BHOS Debate Club`,
+      description: blog.title,
+    },
+  }
 }
 
 export default async function BlogPost({ params }) {
