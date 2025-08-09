@@ -16,7 +16,7 @@ export async function GET() {
   const blogsSnap = await get(ref(db, 'blogs'));
   const newsSnap = await get(ref(db, 'news'));
 
-  const baseUrl = 'https://yourdomain.com';
+  const baseUrl = process.env.NEXT_PUBLIC_DOMAIN;
 
   let urls = '';
 
