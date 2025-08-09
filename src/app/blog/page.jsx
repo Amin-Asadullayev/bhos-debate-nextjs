@@ -1,52 +1,49 @@
-// app/blog/page.jsx
-
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get } from "firebase/database";
+import { app } from "@/lib/firebase"
+import { getDatabase, ref, get, orderByChild, query } from "firebase/database";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
-};
-
-const app = initializeApp(firebaseConfig);
-const database = getDatabase();
+const database = getDatabase(app);
 
 export const metadata = {
   title: "Blogs - BHOS Debate Club",
   description: "Explore all blog posts from the BHOS Debate Club",
+    openGraph: {
+      title: "Blogs - BHOS Debate Club",
+      description: "Explore all blog posts from the BHOS Debate Club",
+      url: 'https://debate.bhos.club',
+      siteName: 'BHOS Debate Club',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Blogs - BHOS Debate Club",
+      description: "Explore all blog posts from the BHOS Debate Club",
+    },
 };
 
 export default async function BlogList() {
-  const res = await get(ref(database, "blogs"));
+  const res = await get(query(ref(database, "blogs"), orderByChild("date")));
   const blogs = res.val();
 
   return (
     <>
       <Navbar />
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Blog</h1>
+        <h1 className="text-3xl text-center font-bold mb-6 text-black dark:text-gray-200">Blogs</h1>
 
-        {!blogs && <p>No blogs found.</p>}
+        {!blogs && <p className="mx-auto text-center text-black dark:text-gray-200">No blogs found.</p>}
 
         {blogs && (
           <ul className="space-y-6">
-            {Object.entries(blogs).map(([id, blog]) => (
-              <li key={id} className="border-b pb-4">
+            {Object.entries(blogs).toReversed().map(([id, blog]) => (
+              <li key={id} className="border-b border-black dark:border-gray-500 pb-4">
                 <Link href={`/blog/${id}`}>
-                  <h2 className="text-xl font-semibold hover:underline">
+                  <h2 className="text-xl font-semibold hover:underline text-black dark:text-gray-200">
                     {blog.title}
                   </h2>
                 </Link>
                 {blog.content && (
-                  <p className="text-gray-600 mt-2">
+                  <p className="text-gray-600 mt-2 dark:text-gray-400">
                     {blog.content.replace(/<[^>]+>/g, "").slice(0, 150)}...
                   </p>
                 )}
