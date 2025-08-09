@@ -6,7 +6,7 @@ const News = ({ news }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {
                         Object.entries(news).map(([id, item]) =>
-                            <a href={`/blog/${id}`} key={id}>
+                            <a href={`/news/${id}`} key={id}>
                                 <div className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
                                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{item.title}</h3>
                                     <p className="text-gray-600 dark:text-gray-300">{["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][(new Date(-item.date)).getMonth()] + " " + (new Date(-item.date)).getDate() + ", " + (new Date(-item.date)).getFullYear()}</p>
