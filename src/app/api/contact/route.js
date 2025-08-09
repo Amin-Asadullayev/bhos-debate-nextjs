@@ -17,8 +17,9 @@ export async function POST(req) {
             const {data, error} = await resend.emails.send({
                 from: "onboarding@resend.dev",
                 to: [process.env.RESEND_EMAIL],
-                subject: `New message from ${name}`,
-                text: `${message}\n\nBy ${email}`                
+                subject: `New message from ${name.trim()}`,
+                text: `${message.trim()}\n\nBy ${email.trim()}`,
+                replyTo: email.trim()           
             });
             if (error) return NextResponse.json({ success: false, message: "Failed" }, { status: 500 })
             return NextResponse.json({ success: true, message: "Done" }, { status: 200 })
