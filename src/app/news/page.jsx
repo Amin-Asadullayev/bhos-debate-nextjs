@@ -36,7 +36,7 @@ export default async function BlogList() {
             {Object.entries(news).toReversed().map(([index, post]) => (
               <Link href={`/news/${index}`}>
                 <div key={index} className="text-gray-800 dark:text-white bg-gray-400 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <img src={post.thumbnail} alt={post.title} className="w-full h-48 object-cover rounded-lg mb-4" />
+                <img src={post.thumbnail} alt={post.title} className="w-full h-48 object-cover mb-4" />
                   <h3 className="text-xl font-semibold">{post.title}</h3>
                   <p className="text-gray-700 dark:text-gray-400 mt-2">{["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][(new Date(-post.date)).getMonth()]+" "+(new Date(-post.date)).getDate()+", "+(new Date(-post.date)).getFullYear()}</p>
                 </div>

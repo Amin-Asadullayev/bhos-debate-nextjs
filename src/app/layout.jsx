@@ -1,5 +1,12 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
+import { Noto_Sans } from 'next/font/google';
+
+const lora = Noto_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic']
+});
 
 export const metadata = {
   title: "BHOS Debate Club",
@@ -26,7 +33,7 @@ const setInitialTheme = `
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html className={`scroll-smooth ${lora.className}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
