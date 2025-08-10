@@ -13,6 +13,7 @@ export default function NewPost() {
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
     const [option, setOption] = useState("blog")
+    const [thumb, setThumb] = useState("")
 
     function postAPost() {
         const auth = getAuth()
@@ -20,11 +21,15 @@ export default function NewPost() {
         if (!(title.trim()) || !(content.trim())) {
             alert("Title or content cannot be empty.")
             return;
+        } else if (option==="news" && thumb==="") {
+            alert("You should upload a thumbnail for the article.")
+            return;
         }
         push(ref(database, option==="blog" ? "blogs" : "news"), {
             title: title,
             content: content,
-            date: -Date.now()
+            date: -Date.now(),
+            ...(option==="news" && { thumbnail: thumb})
         }).then((id) => {
             router.push(`/${option}/${id.key}`)
             fetch('/api/revalidate', {
@@ -41,6 +46,6 @@ export default function NewPost() {
     }
     
     return (
-        <Tiptap title={title} setTitle={setTitle} content={content} setContent={setContent} option={option} setOption={setOption} post={postAPost} />
+        <Tiptap title={title} setTitle={setTitle} content={content} setContent={setContent} option={option} setOption={setOption} post={postAPost} thumb={thumb} setThumb={setThumb}/>
     )
 }

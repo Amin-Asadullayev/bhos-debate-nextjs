@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <section className="relative bg-primary text-white py-20 overflow-hidden group">
       <div
-        className="absolute inset-0 bg-center bg-cover opacity-0 group-hover:opacity-50 transition-opacity duration-500"
+        className="absolute inset-0 bg-center bg-cover opacity-40"
         style={{ backgroundImage: "url('/fel.jpg')" }}
       ></div>
 
