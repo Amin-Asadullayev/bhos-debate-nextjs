@@ -186,22 +186,22 @@ const ImageGalleryButton = ({ editor }) => {
 
       const uploadedURLs = []
 
-      for (const file of files){
+      for (const file of files) {
 
-      const newForm = new FormData()
-      newForm.append("file", file)
-      newForm.append("upload_preset", "bhos-debate-demo")
-      const url = URL.createObjectURL(file)
+        const newForm = new FormData()
+        newForm.append("file", file)
+        newForm.append("upload_preset", "bhos-debate-demo")
+        const url = URL.createObjectURL(file)
 
-      const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
-        method: "POST",
-        body: newForm,
-      });
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
+          method: "POST",
+          body: newForm,
+        });
 
-      const imageURL = await response.json()
-      uploadedURLs.push(imageURL.secure_url)
-    }
-    editor.commands.insertImageSwiper(uploadedURLs)
+        const imageURL = await response.json()
+        uploadedURLs.push(imageURL.secure_url)
+      }
+      editor.commands.insertImageSwiper(uploadedURLs)
 
       event.target.value = null
     },
@@ -226,7 +226,7 @@ const ImageGalleryButton = ({ editor }) => {
 }
 
 
-export default function Tiptap({ title, setTitle, content, setContent, option, setOption, post }) {
+export default function Tiptap({ title, setTitle, content, setContent, option, setOption, post, thumb, setThumb}) {
 
   const editor = useEditor({
     immediatelyRender: false,
@@ -250,21 +250,57 @@ export default function Tiptap({ title, setTitle, content, setContent, option, s
       setContent(html);
     },
   })
+
+  const uploadThumbnail = async (event) => {
+    const file = event.target.files[0]
+    if (!file) {
+      return
+    }
+    const newForm = new FormData()
+    newForm.append("file", file)
+    newForm.append("upload_preset", "bhos-debate-demo")
+    const url = URL.createObjectURL(file)
+
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
+      method: "POST",
+      body: newForm,
+    });
+
+    const imageURL = await response.json()
+    setThumb(imageURL.secure_url)
+
+    event.target.value = null
+  }
+
   return (
-    <>
+      <>
       <div className="h-[calc(100vh-100px)] flex flex-col" style={{ margin: "0 auto", padding: 20 }}>
         <div className="w-auto flex mx-4 mb-2">
-        <select value={option} onChange={(e) => setOption(e.target.value)} className="rounded px-2 bg-gray-300 dark:bg-gray-200">
-          <option value="blog">Blog</option>
-          <option value="news">News</option>
-        </select>
+          <select value={option} onChange={(e) => setOption(e.target.value)} className="rounded px-2 bg-gray-300 dark:bg-gray-200">
+            <option value="blog">Blog</option>
+            <option value="news">News</option>
+          </select>
 
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title goes here..."
-          className="w-full h-full flex-1 ml-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title goes here..."
+            className="w-full h-full flex-1 ml-4 mb-4 text-bold font-bold text-2xl text-black border-2 border-gray-500 rounded placeholder-gray-500 dark:text-white dark:border-gray-400 focus:outline-none" type="text" />
         </div>
+
+        {option === "news" && <div className="flex mx-4 my-2">
+          <label
+            className={`flex-1 text-black px-2 py-2 rounded text-lg transition-colors ${thumb==="" ? "bg-red-400" : "bg-green-400"} text-center`}
+          >
+            {thumb==="" ? "Upload a thumbnail" : "Uploaded"}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadThumbnail}
+              style={{ display: "none" }}
+            />
+          </label>
+        </div>}
 
         <MenuBar editor={editor} />
         <EditorContent editor={editor} spellCheck={false} className="tiptap blog-post flex-1 flex flex-col overflow-y-auto" />
