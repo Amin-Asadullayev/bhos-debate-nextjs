@@ -29,7 +29,7 @@ export default async function BlogList() {
     <>
       <Navbar />
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-3xl text-center font-bold mb-6 text-black dark:text-gray-200">News</h1>
+        <h1 className="text-3xl text-center font-bold mb-6 text-black dark:text-gray-200">Blogs</h1>
 
         {!blogs && <p className="mx-auto text-center text-black dark:text-gray-200">No blogs found.</p>}
 
