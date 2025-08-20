@@ -1,3 +1,6 @@
+import { NextResponse } from 'next/server';
+import { getDatabase, ref, get } from 'firebase/database';
+import { app } from '@/lib/firebase';
 function urlEntry(loc, lastmod) {
   return `
   <url>
