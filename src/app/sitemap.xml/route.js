@@ -42,7 +42,6 @@ export async function GET() {
   const staticUrls = `
     <url>
       <loc>${baseUrl}/</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
     </url>
   `;
 
