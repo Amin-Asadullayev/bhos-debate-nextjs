@@ -4,7 +4,7 @@ const JoinUs = () => {
       id="join"
       className="py-16 bg-gray-50 dark:bg-gray-900 relative group transition-all duration-500 ease-in-out"
     >
-      
+
       <div
         className="absolute inset-0 bg-center bg-cover 
                    opacity-40 md:opacity-0 md:group-hover:opacity-50
@@ -13,10 +13,12 @@ const JoinUs = () => {
       ></div>
 
       <div className="relative max-w-3xl mx-auto px-6 text-center">
+
         <div
           className="
             bg-gray-50/70 dark:bg-gray-900/70 
-            p-8 rounded-xl shadow-md 
+            backdrop-blur-sm
+            p-8 rounded-xl shadow-lg
             transition duration-500
             group-hover:bg-gray-50/80 dark:group-hover:bg-gray-900/80
           "
