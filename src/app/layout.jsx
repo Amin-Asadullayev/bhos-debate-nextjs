@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-      
+      <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
