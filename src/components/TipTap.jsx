@@ -147,7 +147,7 @@ const ImageUploadButton = ({ editor }) => {
 
       const newForm = new FormData()
       newForm.append("file", file)
-      newForm.append("upload_preset", "bhos-debate-demo")
+      newForm.append("upload_preset", process.env.NEXT_PUBLIC_CLOUDINARY_BUCKET)
       const url = URL.createObjectURL(file)
 
       const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
