@@ -1,10 +1,8 @@
 const Header = () => {
   return (
     <section className="relative bg-primary text-white py-20 overflow-hidden group">
-      <div
-        className="absolute inset-0 bg-center bg-cover opacity-40"
-        style={{ backgroundImage: "url('/fel.jpg')" }}
-      ></div>
+      <divclassName="absolute inset-0 bg-center bg-coveropacity-40 md:opacity-0 md:group-hover:opacity-40transition-opacity duration-500"
+        style={{ backgroundImage: "url('/fel.jpg')" }}></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
