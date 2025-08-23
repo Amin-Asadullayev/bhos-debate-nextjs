@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /login
 
-Sitemap: https://bhos-debate-next.vercel.app/sitemap.xml
+Sitemap: https://debate.bhos.club/sitemap.xml
