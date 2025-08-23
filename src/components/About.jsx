@@ -4,7 +4,7 @@ const About = () => {
             id="about"  
             className="py-16 bg-gray-50 dark:bg-gray-900 transition-all duration-500 ease-in-out relative group"
         >
-            {/* Background image */}
+
             <div
                 className="
                     absolute inset-0 bg-center bg-cover
@@ -15,7 +15,7 @@ const About = () => {
             ></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Text box matching background color with some transparency */}
+
                 <div className="bg-gray-50/40 dark:bg-gray-900/40 p-8 rounded-lg">
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
                         About Our Club
