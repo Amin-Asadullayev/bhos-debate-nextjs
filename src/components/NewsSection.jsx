@@ -8,7 +8,7 @@ const News = ({ news }) => {
                     opacity-50 sm:opacity-0 sm:group-hover:opacity-50
                     transition-opacity duration-500
                 " 
-                style={{ backgroundImage: "url('/banem.JPG')" }}
+                style={{ backgroundImage: "url('/aydin.jpg')" }}
             ></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
