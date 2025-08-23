@@ -1,7 +1,15 @@
 const News = ({ news }) => {
     return (
         <section id="about" className="py-16 bg-gray-300 dark:bg-gray-800 transition-all duration-500 ease-in-out relative group">
-            <div className="absolute inset-0 bg-center bg-coveropacity-50 sm:opacity-0 sm:group-hover:opacity-50transition-opacity duration-500" style={{ backgroundImage: "url('/banem.JPG')" }}></div>
+
+            <div 
+                className="
+                    absolute inset-0 bg-center bg-cover
+                    opacity-50 sm:opacity-0 sm:group-hover:opacity-50
+                    transition-opacity duration-500
+                " 
+                style={{ backgroundImage: "url('/banem.JPG')" }}
+            ></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
