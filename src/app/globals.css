@@ -198,22 +198,25 @@
 .dropping-texts > div:nth-child(3) {
   animation: roll 1.5s linear 3s forwards;
 }
-/* Final one shows and STAYS */
+
 .dropping-texts > div:nth-child(4) {
   animation: appear 1.5s linear 4.5s forwards;
 }
+
 
 @keyframes roll {
   0%   { opacity: 0; margin-left: -30px; transform: rotate(-25deg); }
   20%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
   70%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
   100% { opacity: 0; margin-left: 20px; transform: rotate(15deg); }
+}
 
 @keyframes appear {
   0%   { opacity: 0; margin-left: -30px; transform: rotate(-25deg); }
   30%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
   100% { opacity: 1; margin-left: 0; transform: rotate(0deg); }
 }
+
 
 
 
