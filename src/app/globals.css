@@ -171,63 +171,48 @@
   right:0%;
 }
 
-
 .dropping-texts {
   display: inline-block;
-  width: 220px;          
+  min-width: 220px;   /* prevent shifting; adjust if needed */
   text-align: left;
-  height: 1em;           
+  height: 1em;
   vertical-align: -0.1em;
-  position: relative;   
+  position: relative;
 }
 
 .dropping-texts > div {
-  font: inherit;        
+  font: inherit;
   opacity: 0;
   margin-left: -30px;
   position: absolute;
-  font-weight: inherit; 
+  font-weight: inherit;
 }
 
+
 .dropping-texts > div:nth-child(1) {
-  animation: roll 6s linear infinite 0s;
+  animation: roll 1.5s linear 0s forwards;
 }
 .dropping-texts > div:nth-child(2) {
-  animation: roll 6s linear infinite 1.5s;
+  animation: roll 1.5s linear 1.5s forwards;
 }
 .dropping-texts > div:nth-child(3) {
-  animation: roll 6s linear infinite 3s;
+  animation: roll 1.5s linear 3s forwards;
 }
+/* Final one shows and STAYS */
 .dropping-texts > div:nth-child(4) {
-  animation: roll 6s linear infinite 4.5s;
+  animation: appear 1.5s linear 4.5s forwards;
 }
 
 @keyframes roll {
-  0% {
-    opacity: 0;
-    margin-left: -30px;
-    transform: rotate(-25deg);
-  }
-  5% {
-    opacity: 1;
-    margin-left: 0;
-    transform: rotate(0deg);
-  }
-  20% {
-    opacity: 1;
-    margin-left: 0;
-    transform: rotate(0deg);
-  }
-  27% {
-    opacity: 0;
-    margin-left: 20px;
-    transform: rotate(15deg);
-  }
-  100% {
-    opacity: 0;
-    margin-left: -30px;
-    transform: rotate(15deg);
-  }
+  0%   { opacity: 0; margin-left: -30px; transform: rotate(-25deg); }
+  20%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
+  70%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
+  100% { opacity: 0; margin-left: 20px; transform: rotate(15deg); }
+
+@keyframes appear {
+  0%   { opacity: 0; margin-left: -30px; transform: rotate(-25deg); }
+  30%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
+  100% { opacity: 1; margin-left: 0; transform: rotate(0deg); }
 }
 
 
