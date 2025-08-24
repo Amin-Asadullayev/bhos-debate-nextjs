@@ -170,21 +170,23 @@
 .gallery-next {
   right:0%;
 }
+
+
 .dropping-texts {
   display: inline-block;
-  width: 220px;         
+  width: 220px;          
   text-align: left;
-  height: 40px;          
-  vertical-align: -2px;
-  position: relative;    
+  height: 1em;           
+  vertical-align: -0.1em;
+  position: relative;   
 }
 
 .dropping-texts > div {
-  font-size: inherit;
+  font: inherit;        
   opacity: 0;
   margin-left: -30px;
   position: absolute;
-  font-weight: 500;
+  font-weight: inherit; 
 }
 
 .dropping-texts > div:nth-child(1) {
@@ -200,7 +202,6 @@
   animation: roll 6s linear infinite 4.5s;
 }
 
-/* Animation */
 @keyframes roll {
   0% {
     opacity: 0;
