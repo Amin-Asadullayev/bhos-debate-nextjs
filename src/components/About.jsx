@@ -21,9 +21,9 @@ const About = () => {
                         About Our Club
                     </h2>
                     <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-3xl mx-auto">
-                        The Debate Club is a vibrant community dedicated to fostering intellectual growth,
-                        critical thinking, and effective communication. We welcome individuals from all
-                        backgrounds to engage in respectful and dynamic discussions on a wide range of topics.
+                        Baku Higher Oil School Debate Club is a vibrant community dedicated to fostering intellectual curiosity, critical 
+                        thinking, and persuasive communication, with a strong emphasis on public speaking and effective communication skills. 
+                        We welcome students from all disciplines to engage in dynamic and respectful discussions on a wide range of topics.
                     </p>
                 </div>
             </div>
