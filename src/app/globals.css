@@ -171,11 +171,10 @@
   right:0%;
 }
 .typing {
-  display: inline-block;          
-  overflow: hidden;               
+  display: inline-block;                     
   white-space: nowrap;           
   border-right: 3px solid white;  
-  animation: typing 3s steps(24, end), blink 0.7s step-end infinite;
+  animation: typing 3s steps(24, end), blink 0.7s step-end 3s;
 }
 
 @keyframes typing {
