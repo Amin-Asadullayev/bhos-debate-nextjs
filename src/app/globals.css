@@ -170,20 +170,16 @@
 .gallery-next {
   right:0%;
 }
-.typing {
-  display: inline-block;                     
-  white-space: nowrap;           
-  border-right: 3px solid white;  
-  animation: typing 3s steps(24, end), blink 0.7s step-end 3s;
+.fade-letter {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 0.5s forwards;
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
-}
 
 
