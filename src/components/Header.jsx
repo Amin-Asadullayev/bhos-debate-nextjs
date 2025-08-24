@@ -10,17 +10,15 @@ const Header = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-center">
-          {"Join the Art of Debate".split("").map((char, index) => (
-            <span
-              key={index}
-              className="fade-letter"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {char}
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-center">
+            Join the Art of{" "}
+            <span className="dropping-texts">
+              <div>Philosophy</div>
+              <div>Public Speaking</div>
+              <div>Confidence</div>
+              <div>Debate</div>
             </span>
-          ))}
-        </h2>
+          </h2>
         <p className="text-lg md:text-xl mb-8">
           Engage in thought-provoking discussions and sharpen your critical
           thinking skills.
