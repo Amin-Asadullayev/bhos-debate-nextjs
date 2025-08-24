@@ -170,23 +170,24 @@
 .gallery-next {
   right:0%;
 }
-.typing-effect {
+.typing-container {
   display: inline-block;
-  overflow: hidden;
+  overflow: hidden; 
+  border-right: 3px solid white; 
+  vertical-align: bottom;
   white-space: nowrap;
-  border-right: 4px solid white; /* cursor */
-  vertical-align: bottom; /* fix descender clipping */
-  padding-bottom: 2px; /* extra space so J, g, y aren’t cut */
-  animation: typing 3s steps(25, end) forwards, blinkCaret 0.7s step-end 3s 1; /* stop after typing */
+  animation: typing 3s steps(30, end) forwards, blinkCaret 0.7s step-end 3s 1;
+  line-height: 1.2em; 
 }
 
 @keyframes typing {
-  from { width: 0ch; }
-  to { width: 25ch; } 
-}
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 
+}
 @keyframes blinkCaret {
   0%, 100% { border-color: transparent; }
   50% { border-color: white; }
 }
+
 
