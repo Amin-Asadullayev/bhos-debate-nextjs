@@ -6,9 +6,12 @@ export default async function BlogSection({ blogEntries }) {
       <div className=" absolute inset-0 bg-center bg-cover opacity-40 md:opacity-0 md:group-hover:opacity-40 transition-opacity duration-500  " style={{ backgroundImage: "url('/banem.JPG')" }}></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          Blog
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
+          <a href="/blog" className="hover:underline">
+            Blog
+          </a>
         </h2>
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
           {Object.keys(blogEntries)
             .slice(0, 3)
