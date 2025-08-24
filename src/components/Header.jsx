@@ -14,7 +14,7 @@ const Header = () => {
             Join the Art of{" "}
             <span className="dropping-texts">
               <div>Philosophy</div>
-              <div>Public Speaking</div>
+              <div>Communication</div>
               <div>Confidence</div>
               <div>Debate</div>
             </span>
