@@ -174,10 +174,11 @@
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 4px solid white; 
-  animation: typing 3s steps(25, end) forwards, blinkCaret 0.7s step-end infinite;
+  border-right: 4px solid white; /* cursor */
+  vertical-align: bottom; /* fix descender clipping */
+  padding-bottom: 2px; /* extra space so J, g, y aren’t cut */
+  animation: typing 3s steps(25, end) forwards, blinkCaret 0.7s step-end 3s 1; /* stop after typing */
 }
-
 
 @keyframes typing {
   from { width: 0ch; }
@@ -188,3 +189,4 @@
   0%, 100% { border-color: transparent; }
   50% { border-color: white; }
 }
+
