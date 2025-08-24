@@ -173,22 +173,28 @@
 
 .dropping-texts {
   display: inline-block;
-  min-width: 220px;   /* prevent shifting; adjust if needed */
+  min-width: 220px;         
   text-align: left;
   height: 1em;
-  vertical-align: -0.1em;
+  line-height: 1em;
+  vertical-align: middle;
   position: relative;
+  white-space: nowrap;      
+  overflow: hidden;         
 }
 
 .dropping-texts > div {
-  font: inherit;
+  font: inherit;            
   opacity: 0;
   margin-left: -30px;
   position: absolute;
+  top: 0;                   
+  left: 0;
   font-weight: inherit;
+  white-space: nowrap;      
 }
 
-
+/* Animation order */
 .dropping-texts > div:nth-child(1) {
   animation: roll 1.5s linear 0s forwards;
 }
@@ -198,12 +204,11 @@
 .dropping-texts > div:nth-child(3) {
   animation: roll 1.5s linear 3s forwards;
 }
-
 .dropping-texts > div:nth-child(4) {
   animation: appear 1.5s linear 4.5s forwards;
 }
 
-
+/* Fade in + out for rotating words */
 @keyframes roll {
   0%   { opacity: 0; margin-left: -30px; transform: rotate(-25deg); }
   20%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
@@ -211,11 +216,13 @@
   100% { opacity: 0; margin-left: 20px; transform: rotate(15deg); }
 }
 
+/* Final word fades in and stays */
 @keyframes appear {
   0%   { opacity: 0; margin-left: -30px; transform: rotate(-25deg); }
   30%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
   100% { opacity: 1; margin-left: 0; transform: rotate(0deg); }
 }
+
 
 
 
