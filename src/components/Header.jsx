@@ -10,7 +10,7 @@ const Header = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 typing-effect">
           Join the Art of Debate
         </h2>
         <p className="text-lg md:text-xl mb-8">
