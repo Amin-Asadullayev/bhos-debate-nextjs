@@ -20,7 +20,7 @@ const About = () => {
                     <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
                         About Our Club
                     </h2>
-                    <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-3xl mx-auto">
+                    <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-4xl mx-auto">
                         Baku Higher Oil School Debate Club is a vibrant community dedicated to fostering intellectual curiosity, critical 
                         thinking, and persuasive communication, with a strong emphasis on public speaking and effective communication skills. 
                         We welcome students from all disciplines to engage in dynamic and respectful discussions on a wide range of topics.
