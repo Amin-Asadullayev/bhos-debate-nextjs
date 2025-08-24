@@ -173,7 +173,7 @@
 .fade-letter {
   opacity: 0;
   display: inline-block;
-  animation: fadeIn 0.5s forwards;
+  animation: fadeIn 0.1s ;
 }
 
 @keyframes fadeIn {
