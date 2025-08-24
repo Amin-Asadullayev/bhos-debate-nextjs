@@ -4,8 +4,7 @@ const Header = () => {
       <div
         className="
           absolute inset-0 bg-center bg-cover
-          opacity-40 md:opacity-0 md:group-hover:opacity-40
-          transition-opacity duration-500
+          opacity-40 
         "
         style={{ backgroundImage: "url('/fel.jpg')" }}
       ></div>
