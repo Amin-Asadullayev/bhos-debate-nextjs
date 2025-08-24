@@ -42,7 +42,7 @@ export default function LoginPage() {
       <Navbar />
       <form className=" w-full max-w-xs bg-gray-200 mx-auto shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-8 dark:bg-gray-400" onSubmit={loginHandler}>
         <h1 className="font-bold text-2xl mb-3">Admin Login</h1>
-        <h2 className="font-bold text-2xl mb-3 text-blue-600 hover:underline cursor-pointer">
+        <h2 className="font-bold text-2xl mb-1 text-gray-600 hover:underline cursor-pointer">
           <a href="/password">Admin Login Passwords</a>
         </h2>
 
