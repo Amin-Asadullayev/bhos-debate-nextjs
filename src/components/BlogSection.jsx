@@ -7,7 +7,7 @@ export default async function BlogSection({ blogEntries }) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
-          <a href="/blog" className="hover:bold">
+          <a href="/blog" className="hover:underline">
             Blog
           </a>
         </h2>
