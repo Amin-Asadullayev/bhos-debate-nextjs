@@ -18,6 +18,7 @@ export default function NoPage() {
         </h2>
         <p className="text-xl font-bold text-gray-900 dark:text-white text-center">
           The page you are looking for does not exist.
+          Nəsə axtarırdın? :)
         </p>
       </section>
     </>
