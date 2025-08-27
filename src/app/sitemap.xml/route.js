@@ -1,4 +1,3 @@
-import { NextResponse } from 'next/server';
 import { getDatabase, ref, get } from 'firebase/database';
 import { app } from '@/lib/firebase';
 function urlEntry(loc, lastmod) {
@@ -53,7 +52,12 @@ export async function GET() {
   ${urls}
 </urlset>`;
 
-  return new NextResponse(sitemap, {
-    headers: { 'Content-Type': 'application/xml' }
+  return new Response(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
+    },
   });
 }
