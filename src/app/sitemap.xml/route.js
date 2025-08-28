@@ -23,7 +23,7 @@ export async function GET() {
         const lastmod = blogs[id].date
           ? new Date(blogs[id].date).toISOString()
           : new Date().toISOString();
-        return urlEntry(`${baseUrl}/blog/${id}`, lastmod);
+        return urlEntry(`https://${baseUrl}/blog/${id}`, lastmod);
       })
       .join('');
   }
@@ -35,16 +35,25 @@ export async function GET() {
         const lastmod = news[id].date
           ? new Date(news[id].date).toISOString()
           : new Date().toISOString();
-        return urlEntry(`${baseUrl}/news/${id}`, lastmod);
+        return urlEntry(`https://${baseUrl}/news/${id}`, lastmod);
       })
       .join('');
   }
 
   const staticUrls = `
   <url>
-    <loc>${baseUrl}/</loc>
+    <loc>https://${baseUrl}/</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
-  </url>`;
+  </url>
+  <url>
+    <loc>https://${baseUrl}/news/</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </url>
+  <url>
+    <loc>https://${baseUrl}/blog/</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </url>
+  `;
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
