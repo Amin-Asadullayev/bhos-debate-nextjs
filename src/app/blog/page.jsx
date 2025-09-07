@@ -50,7 +50,7 @@ export default async function BlogList() {
             {blogEntries.map(([id, blog]) => (
               <div
                 key={id}
-                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105 duration-300"
               >
                 <Link href={`/blog/${id}`}>
                   <h2 className="text-xl font-semibold hover:underline text-black dark:text-gray-200 mb-2">
