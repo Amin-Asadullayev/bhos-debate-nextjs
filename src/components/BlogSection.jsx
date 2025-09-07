@@ -22,7 +22,7 @@ export default async function BlogSection({ blogEntries }) {
             .toReversed()
             .map((id) => {
             const timestamp = blogEntries[id].date;
-            const date = new Date(Number(timestamp)); // multiply by 1000 if your Firebase uses seconds
+            const date = new Date(Number(timestamp) * 1000); // multiply by 1000 if your Firebase uses seconds
             const formattedDate =
               [
                 "January","February","March","April","May","June",
