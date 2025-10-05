@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 
 const database = getDatabase(app);
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "Blogs - BHOS Debate Club",
   description: "Explore all blog posts from the BHOS Debate Club",
