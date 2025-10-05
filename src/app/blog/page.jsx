@@ -21,7 +21,7 @@ export const metadata = {
   },
 };
 
-export default async function BlogList() {
+export async function fetchBlogs() {
   let blogs = null;
 
   try {
@@ -31,8 +31,11 @@ export default async function BlogList() {
     console.error("Failed to fetch blogs:", error);
   }
 
-  // Convert to entries and reverse to show newest first
-  const blogEntries = blogs ? Object.entries(blogs).reverse() : [];
+  return blogs ? Object.entries(blogs).reverse() : [];
+}
+
+export default async function BlogList() {
+  const blogEntries = await fetchBlogs();
 
   return (
     <>
@@ -49,7 +52,6 @@ export default async function BlogList() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {blogEntries.map(([id, blog]) => {
-              // Preserve original negated timestamp logic
               const date = new Date(-blog.date);
               const formattedDate =
                 [
