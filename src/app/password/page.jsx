@@ -41,8 +41,6 @@ AdminPasswords.txt
 </h1>
 
 
-{/* Responsive YouTube embed that attempts to autoplay the Rickroll video. */}
-{/* Note: most browsers block autoplay with sound — the player is muted to allow autoplay. */}
 <div className="relative" style={{ paddingTop: '56.25%' }}>
 <iframe
 className="absolute top-0 left-0 w-full h-full rounded-lg shadow-md"
