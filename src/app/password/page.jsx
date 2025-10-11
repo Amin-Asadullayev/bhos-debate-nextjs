@@ -24,21 +24,10 @@ return (
 <>
 <Navbar />
 <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-<h1 className="text-[120px] font-bold text-black dark:text-gray-200 mb-4">
+<h1 className="text-[12px] font-bold text-black dark:text-gray-200 mb-4">
 Nə Axtarırsan balaca?
 </h1>
 
-
-<h1 className="text-3xl font-bold text-black dark:text-gray-200 mb-8">
-<a
-href="https://youtu.be/dQw4w9WgXcQ?si=3KYq1AyzXaxxdG1q"
-target="_blank"
-rel="noopener noreferrer"
-className="text-blue-600 dark:text-gray-400 hover:underline"
->
-AdminPasswords.txt
-</a>
-</h1>
 
 
 <div className="relative" style={{ paddingTop: '56.25%' }}>
