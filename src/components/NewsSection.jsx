@@ -1,6 +1,6 @@
 const News = ({ news }) => {
     return (
-        <section id="about" className="py-16 bg-gray-270 dark:bg-gray-800 transition-all duration-500 ease-in-out relative group">
+        <section id="about" className="py-16 bg-gray-400 dark:bg-gray-800 transition-all duration-500 ease-in-out relative group">
 
             <div 
                 className="
