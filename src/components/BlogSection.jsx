@@ -2,7 +2,7 @@ export default async function BlogSection({ blogEntries }) {
   return (
     <section
       id="blog"
-      className="py-16 bg-gray-150 dark:bg-gray-700 relative group transition-all duration-500 ease-in-out"
+      className="py-16 bg-gray-50 dark:bg-gray-700 relative group transition-all duration-500 ease-in-out"
     >
       <div
         className="absolute inset-0 bg-center bg-cover opacity-40 md:opacity-0 md:group-hover:opacity-40 transition-opacity duration-500"
