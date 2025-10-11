@@ -1,6 +1,6 @@
 const JoinUs = () => {
   return (
-    <section    id="join"  className="py-16 bg-gray-50 dark:bg-gray-950 relative group transition-all duration-500 ease-in-out"  >
+    <section    id="join"  className="py-16 bg-gray-70 dark:bg-gray-900 relative group transition-all duration-500 ease-in-out"  >
       <div
         className="absolute inset-0 bg-center bg-cover 
                    opacity-50 md:opacity-0 md:group-hover:opacity-50
