@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
-      <div className="w-screen  px-4 sm:px-6 lg:px-8">
+      <div className="w-full   px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           <a href="/" className="flex items-center space-x-2">
             <img className="h-8 w-auto" src="/logo.png" alt="Logo" />
