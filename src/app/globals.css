@@ -283,3 +283,7 @@
   30%  { opacity: 1; margin-left: 0; transform: rotate(0deg); }
   100% { opacity: 1; margin-left: 0; transform: rotate(0deg); }
 }
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
