@@ -54,8 +54,8 @@ export default async function BlogPost({ params }) {
   return (
     <>
       <Navbar />
-      <div className="blog-post">
-        <h1>{new_.title}</h1>
+      <div className="blog-post max-w-4xl mx-auto">
+        <h1 className="text-center">{new_.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(new_.content) }} />
         <Swiper selector=".swiper" />
       </div>
