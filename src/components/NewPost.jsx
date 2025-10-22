@@ -29,7 +29,7 @@ export default function NewPost() {
             title: title,
             content: content,
             date: -Date.now(),
-            ...(option==="news" && { thumbnail: thumb})
+            ...(option==="news" && thumb ? { thumbnail: thumb}: {})
         }).then((id) => {
             router.push(`/${option}/${id.key}`)
             fetch('/api/revalidate', {
