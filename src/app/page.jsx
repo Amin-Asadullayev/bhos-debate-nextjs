@@ -13,18 +13,19 @@ const database = getDatabase(app);
 
 export const metadata = {
   title: "BHOS Debate Club",
-  description: "BHOS Debate Club Home Page",
+  description: "BHOS Debate Club Home Page. The Baku Higher Oil School Debate Club is a vibrant community that nurtures intellectual curiosity, critical thinking, and persuasive communication, with a focus on public speaking and effective communication skills. Students from all disciplines are welcome to participate in dynamic, respectful discussions on a variety of topics.",
   openGraph: {
     title: "BHOS Debate Club",
-    description: "BHOS Debate Club Home Page",
+    description: "BHOS Debate Club Home Page. The Baku Higher Oil School Debate Club is a vibrant community that nurtures intellectual curiosity, critical thinking, and persuasive communication, with a focus on public speaking and effective communication skills. Students from all disciplines are welcome to participate in dynamic, respectful discussions on a variety of topics.",
     url: "https://debate.bhos.club",
     siteName: "BHOS Debate Club",
   },
   twitter: {
     card: "summary_large_image",
     title: "BHOS Debate Club",
-    description: "BHOS Debate Club Home Page",
+    description: "BHOS Debate Club Home Page. The Baku Higher Oil School Debate Club is a vibrant community that nurtures intellectual curiosity, critical thinking, and persuasive communication, with a focus on public speaking and effective communication skills. Students from all disciplines are welcome to participate in dynamic, respectful discussions on a variety of topics.",
   },
+  keywords: ["Debate Club", "BHOS", "High School Debate", "Debate News", "Public Speaking", "Student Debate", "BHOS Students", "BANM", "Baki Ali Neft Mektebi", "Bakı Ali Neft Məktəbi", "Debat Klubu"],
 };
 
 export default async function Home() {
