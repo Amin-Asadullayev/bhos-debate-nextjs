@@ -29,7 +29,7 @@ export default function Navbar() {
   if (theme === null) return null
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
+    <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10, py-1">
       <div className="w-full   px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           <a href="/" className="flex items-center space-x-2">
@@ -55,19 +55,19 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center float-right space-x-4">
             <a
               href="/"
-              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+              className="nav-link text-1x1 text-gray-600 dark:text-gray-300 hover:text-primary-500"
             >
               Home
             </a>
             <a
               href="/blog"
-              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+              className="nav-link text-1xl text-gray-600 dark:text-gray-300 hover:text-primary-500"
             >
               Blog
             </a>
             <a
               href="/news"
-              className="nav-link text-sm text-gray-600 dark:text-gray-300 hover:text-primary-500"
+              className="nav-link text-1x1 text-gray-600 dark:text-gray-300 hover:text-primary-500"
             >
               News
             </a>
