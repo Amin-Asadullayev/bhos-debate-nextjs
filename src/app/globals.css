@@ -25,6 +25,10 @@
   color: #c4c4c4;
 }
 
+.hover\:text-primary-500:hover {
+  color: #6a7282;
+}
+
 .blog-post {
   @apply px-4 pb-8 dark:bg-gray-900;
 }
