@@ -43,7 +43,7 @@ const Header = () => {
         </p>
         <a
           href="#join"
-          className="nav-link inline-block bg-white text-primary font-semibold py-3 px-6 rounded-lg hover:bg-primary-100 transition"
+          className="nav-link inline-block bg-white text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-primary-100 transition"
         >
           Get Involved
         </a>
