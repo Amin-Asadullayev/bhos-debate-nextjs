@@ -258,7 +258,7 @@ export default function Tiptap({ title, setTitle, content, setContent, option, s
     }
     const newForm = new FormData()
     newForm.append("file", file)
-    newForm.append("upload_preset", "bhos-debate-demo")
+    newForm.append("upload_preset", "bhos-debate")
     const url = URL.createObjectURL(file)
 
     const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_TEMP}/image/upload`, {
