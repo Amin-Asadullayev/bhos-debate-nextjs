@@ -52,7 +52,8 @@ const Contact = () => {
 
     }
 
-    return (<section id="contact" className="py-16 bg-white dark:bg-gray-800">
+    return (
+        <section id="py-20 relative bg-gradient-to-b from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-all duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">Contact Us</h2>
             <div className="max-w-lg mx-auto">
@@ -89,8 +90,8 @@ const Contact = () => {
                             ref={reCRef}
                         />
                     </div>
-                    <button onClick={formHandler} className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary-200 transition">
-                        Send Messages
+                    <button onClick={formHandler} className="w-full bg-primary text-white font-semibold py-3 rounded-lg    hover:bg-primary-200 dark:bg-primary-600 dark:hover:bg-primary-500 transition duration-300">
+                        Send Your Message
                     </button>
                 </div>
             </div>
