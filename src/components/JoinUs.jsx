@@ -10,7 +10,7 @@ const JoinUs = () => {
       ></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gray-50/40 dark:bg-gray-900/40 p-8 rounded-lg">
+        <div className="bg-gray-100/40 dark:bg-gray-800/40 p-8 rounded-lg">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             Join Our Club
           </h2>
