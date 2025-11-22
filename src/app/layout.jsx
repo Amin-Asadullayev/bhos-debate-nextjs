@@ -1,52 +1,86 @@
-import Footer from "@/components/Footer";
-import "./globals.css";
-import { Noto_Sans } from 'next/font/google';
+// import Footer from "@/components/Footer";
+// import "./globals.css";
+// import { Noto_Sans } from 'next/font/google';
 
-const lora = Noto_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic']
-});
+// const lora = Noto_Sans({
+//   subsets: ['latin'],
+//   weight: ['400', '700'],
+//   style: ['normal', 'italic']
+// });
+
+// export const metadata = {
+//   title: "BHOS Debate Club",
+//   description: "BHOS Debate Club",
+// };
+
+// const setInitialTheme = `
+// (function() {
+//   try {
+//     const theme = window.localStorage.getItem('theme');
+//     if (
+//       theme === 'dark' || 
+//       (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+//     ) {
+//       document.documentElement.classList.add('dark');
+//     } else {
+//       document.documentElement.classList.remove('dark');
+//     }
+//   } catch(e) {}
+// })();
+// `;
+
+
+
+// export default function RootLayout({ children }) {
+//   return (
+//     <html className={`scroll-smooth ${lora.className}`}>
+//       <head>
+//         <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+//       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+//       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+//       <link rel="icon" href="/favicon.ico" sizes="any" />
+//         <meta charSet="UTF-8" />
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//       </head>
+//       <body className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
+//         <main className="flex-1">
+//         {children}
+//         </main>
+//         <Footer/>
+//       </body>
+//     </html>
+//   );
+// }
+
+import "./globals.css";
 
 export const metadata = {
-  title: "BHOS Debate Club",
-  description: "BHOS Debate Club",
+  title: "test-debate",
+  description: "test-debate"
 };
-
-const setInitialTheme = `
-(function() {
-  try {
-    const theme = window.localStorage.getItem('theme');
-    if (
-      theme === 'dark' || 
-      (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  } catch(e) {}
-})();
-`;
-
-
 
 export default function RootLayout({ children }) {
   return (
-    <html className={`scroll-smooth ${lora.className}`}>
+    <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/index.css" />
+
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Libre+Baskerville:wght@400;700&family=Source+Serif+Pro:wght@300;400;600&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
-        <main className="flex-1">
+
+      <body>
         {children}
-        </main>
-        <Footer/>
       </body>
     </html>
   );
