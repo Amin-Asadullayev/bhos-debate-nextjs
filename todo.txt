@@ -1,0 +1,4 @@
+(1) Restore the Hero section animation
+(2) Fix theme and theme switch button
+(3) Fix some details in NewsSection.jsx
+(4) The same as above for BlogSection.jsx
