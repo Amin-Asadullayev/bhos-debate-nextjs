@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 
 const database = getDatabase(app);
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Blogs - BHOS Debate Club",
@@ -41,7 +41,6 @@ export default async function BlogList() {
 
   return (
     <>
-      <Navbar />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl text-center font-bold mb-8 text-black dark:text-gray-200">
           Blogs
@@ -57,8 +56,18 @@ export default async function BlogList() {
               const date = new Date(-blog.date);
               const formattedDate =
                 [
-                  "January", "February", "March", "April", "May", "June",
-                  "July", "August", "September", "October", "November", "December"
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
                 ][date.getMonth()] +
                 " " +
                 date.getDate() +

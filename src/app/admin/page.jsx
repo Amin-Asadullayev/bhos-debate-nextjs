@@ -21,7 +21,6 @@ export default async function AdminPage() {
 
   return (
     <>
-      <Navbar />
       <h1 className="text-2xl font-bold text-center mx-auto w-full my-3 dark:text-gray-200">BHOS Debate Club Admin Panel</h1>
       <div className="grid sm:gap-8 gap-6 md:grid-cols-2 lg:grid-cols-3 text-center mx-10 my-5">
         <a href="/admin/new-post" className="block bg-gray-300 dark:bg-gray-800 p-6 mb-0 rounded-lg shadow hover:shadow-lg transition">
