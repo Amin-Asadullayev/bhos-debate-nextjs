@@ -8,7 +8,6 @@ export const metadata = {
 export default function NoPage() {
   return (
     <>
-      <Navbar />
       <section
         id="about"
         className="py-16 min-h-screen bg-gray-50 dark:bg-gray-900 w-screen flex flex-col items-center justify-center"
