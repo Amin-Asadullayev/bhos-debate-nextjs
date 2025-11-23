@@ -181,5 +181,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-export default Navbar
