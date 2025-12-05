@@ -1,7 +1,6 @@
 import { app } from "@/lib/firebase";
 import { getDatabase, ref, get, orderByChild, query } from "firebase/database";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 
 const database = getDatabase(app);
 

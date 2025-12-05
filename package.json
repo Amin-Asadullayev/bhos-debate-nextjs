@@ -33,7 +33,7 @@
     "dompurify": "^3.2.6",
     "firebase": "^12.0.0",
     "firebase-admin": "^13.4.0",
-    "isomorphic-dompurify": "^2.26.0",
+    "isomorphic-dompurify": "^2.33.0",
     "jsdom": "^26.1.0",
     "lodash.throttle": "^4.1.1",
     "lowlight": "^3.3.0",

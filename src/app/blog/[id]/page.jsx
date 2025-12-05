@@ -1,6 +1,6 @@
 import { app } from "@/lib/firebase";
 import { getDatabase, ref, get } from "firebase/database";
-import createDOMPurify from "isomorphic-dompurify";
+import createDOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { notFound } from "next/navigation";
 import Swiper from "@/components/Swiper";
