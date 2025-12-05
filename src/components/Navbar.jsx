@@ -31,12 +31,12 @@ export default function Navbar() {
     localStorage.setItem("theme", initialTheme);
   }, []);
 
-//   useEffect(() => {
-//     if (theme) {
-//       document.documentElement.classList.toggle("dark", theme === "dark");
-//       localStorage.setItem("theme", theme);
-//     }
-//   }, [theme]);
+  //   useEffect(() => {
+  //     if (theme) {
+  //       document.documentElement.classList.toggle("dark", theme === "dark");
+  //       localStorage.setItem("theme", theme);
+  //     }
+  //   }, [theme]);
 
   const emoji = theme === "dark" ? <AiOutlineMoon /> : <AiFillSun />;
   if (theme === null) return null;
@@ -84,12 +84,6 @@ export default function Navbar() {
 
         {/* RIGHT BUTTON */}
         <div className="hidden md:flex items-center ml-auto font-body text-md tracking-widest uppercase">
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="size-fit p-2.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-          >
-            {emoji}
-          </button>
           <button
             onClick={scrollToContact}
             className="btn-dark border-2 border-transparent cursor-pointer uppercase px-6 py-2 transition-all"

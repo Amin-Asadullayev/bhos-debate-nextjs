@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+import createDOMPurify from "dompurify";
+import { JSDOM } from "jsdom";
+
+const window = new JSDOM("").window;
+const DOMPurify = createDOMPurify(window);
+
 function NewsCard({ news, index }) {
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
@@ -22,7 +28,7 @@ function NewsCard({ news, index }) {
       {/* Image */}
       <div className="w-full md:w-64 h-48 md:h-auto shrink-0 relative">
         <img
-          src={news.image}
+          src={news.thumbnail}
           alt={news.title}
           className="w-full h-full object-cover"
         />
@@ -34,15 +40,35 @@ function NewsCard({ news, index }) {
           <h3 className="font-body text-[1.5rem] leading-snug font-semibold h2-light mb-3 group-hover:opacity-80 transition-colors">
             {news.title}
           </h3>
-          <p className="font-body text-[1rem] leading-relaxed body-light mb-4">
-            {truncateText(news.content, 180)}
-          </p>
+          <p
+            className="font-body text-[1rem] leading-relaxed body-light mb-4"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(truncateText(news.content, 200)),
+            }}
+          />
         </div>
         <p
           className="font-body text-[0.875rem] opacity-70"
           style={{ color: "var(--light-subtext)" }}
         >
-          {news.date}
+          {[
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ][new Date(-news.date).getMonth()] +
+            " " +
+            new Date(-news.date).getDate() +
+            ", " +
+            new Date(-news.date).getFullYear()}
         </p>
       </div>
     </Link>

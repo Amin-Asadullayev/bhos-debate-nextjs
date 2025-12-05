@@ -80,6 +80,7 @@ export default async function BlogList() {
                   href={`/blog/${id}`}
                   className="block bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105 duration-300"
                 >
+                  <img src={blog.thumbnail} />
                   <h2 className="text-xl font-semibold text-black dark:text-gray-200 mb-2">
                     {blog.title}
                   </h2>

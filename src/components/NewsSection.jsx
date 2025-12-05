@@ -2,12 +2,12 @@
 //     return (
 //         <section id="about" className="py-16 bg-gray-200 dark:bg-gray-800 transition-all duration-500 ease-in-out relative group rounded-lg overflow-hidden">
 
-//             <div 
+//             <div
 //                 className="
 //                     absolute inset-0 bg-center bg-cover
 //                     opacity-50 sm:opacity-0 sm:group-hover:opacity-50
 //                     transition-opacity duration-500 rounded-lg
-//                 " 
+//                 "
 //                 style={{ backgroundImage: "url('/aydin.jpg')" }}
 //             ></div>
 
@@ -28,8 +28,8 @@
 //                                 <p className="text-gray-600 dark:text-gray-300">
 //                                     {
 //                                         ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-//                                         [(new Date(-item.date)).getMonth()] 
-//                                         + " " + (new Date(-item.date)).getDate() 
+//                                         [(new Date(-item.date)).getMonth()]
+//                                         + " " + (new Date(-item.date)).getDate()
 //                                         + ", " + (new Date(-item.date)).getFullYear()
 //                                     }
 //                                 </p>
@@ -51,7 +51,6 @@ import Link from "next/link";
 import AllNews from "./AllNews";
 
 function NewsSection({ newsItems }) {
-
   return (
     <div className="header-dark">
       <div className="py-20 px-6">
@@ -96,4 +95,3 @@ function NewsSection({ newsItems }) {
 }
 
 export default NewsSection;
-
