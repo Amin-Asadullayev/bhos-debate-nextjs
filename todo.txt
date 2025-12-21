@@ -1,4 +1,4 @@
-(1) Restore the Hero section animation
-(2) Fix theme and theme switch button
-(3) Fix some details in NewsSection.jsx
-(4) The same as above for BlogSection.jsx
+(1) Remove themes entirely
+(2) Change db structure of blog document (remove <img> from content and add the source to the separate thumbnail field)
+(3) Update the design of /news and /blog pages
+(4) Fix Deployment error
