@@ -1,13 +1,13 @@
-import NewsCard from "./NewsCard"
+import NewsCard from "./NewsCard";
 
 function AllNews({ news }) {
   return (
     <div className="space-y-6 mb-8">
-      {news.map((newsItem, index) => (
-        <NewsCard key={newsItem.id} news={newsItem} index={index} />
+      {Object.entries(news).map(([id, item], index) => (
+        <NewsCard key={id} news={{ ...item, id }} index={id} />
       ))}
     </div>
-  )
+  );
 }
 
-export default AllNews
+export default AllNews;
