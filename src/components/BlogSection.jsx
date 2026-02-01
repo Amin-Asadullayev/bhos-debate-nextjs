@@ -39,7 +39,40 @@ function BlogSection({ blogPosts }) {
               </p>
             </div>
 
-            <AllBlogs blogs={blogPosts} />
+            <AllBlogs
+              blogs={Object.entries(blogPosts)
+                .reverse()
+                .map(([id, blog]) => {
+                  const date = new Date(-blog.date);
+                  const formattedDate =
+                    [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December",
+                    ][date.getMonth()] +
+                    " " +
+                    date.getDate() +
+                    ", " +
+                    date.getFullYear();
+
+                  return {
+                    id,
+                    title: blog.title,
+                    content: blog.content,
+                    image: blog.thumbnail,
+                    date: formattedDate,
+                  };
+                })}
+            />
 
             {/* Read More Button */}
             <div

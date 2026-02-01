@@ -70,7 +70,40 @@ function NewsSection({ newsItems }) {
           </div>
 
           {/* News Cards */}
-          <AllNews news={newsItems} />
+          <AllNews
+            news={Object.entries(newsItems)
+              .reverse()
+              .map(([id, newsItem]) => {
+                const date = new Date(-newsItem.date);
+                const formattedDate =
+                  [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ][date.getMonth()] +
+                  " " +
+                  date.getDate() +
+                  ", " +
+                  date.getFullYear();
+
+                return {
+                  id,
+                  title: newsItem.title,
+                  content: newsItem.content,
+                  image: newsItem.thumbnail,
+                  date: formattedDate,
+                };
+              })}
+          />
 
           {/* Read More Button */}
           <div
